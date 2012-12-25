@@ -47,7 +47,6 @@ const int dosa3[]= {10, 120, 150, 160};      // Bomba dosadora 3
 //----------------------------------------------------
 const int leWB[]= {5, 188, 90, 220};        //LED values show whites or blues
 const int leST[]= {100, 188, 170, 220};       //LED values change
-const int leSh[]= {325,200,393,238};       //white LED show table
 const int houU[]= {70, 18, 95, 43};          //hour up
 const int minU[]= {160, 18, 185, 43};        //min up
 const int minUT[]= {120, 18, 145, 43};        //minutotpa mais

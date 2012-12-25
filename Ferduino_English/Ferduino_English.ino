@@ -846,5 +846,7 @@ char* tabela_textos[] PROGMEM =
 "NORMAL", // tabela_textos [197]
 "T", // tabela_textos[198] // Thursday
 "F", //  tabela_textos[199] // Friday
-"S" // tabela_textos[200] // Saturday
+"S", // tabela_textos[200] // Saturday
+"CONFIG. LEDS",// tabela_textos[201]
+"CONFIGURAR LEDS" // tabela_textos[202]
 };

@@ -5,10 +5,10 @@ void menuScreen()
   printHeader(tabela_textos[1]); // tabela_textos[1] = "MENU 1"; 
 
   printButton(tabela_textos[3], tanD[0], tanD[1], tanD[2], tanD[3]); // "HORA E DATA"
-  printButton(tabela_textos[4], tesT[0], tesT[1], tesT[2], tesT[3]); // "TESTAR LED"
+  printButton(tabela_textos[201], tesT[0], tesT[1], tesT[2], tesT[3]); // "CONFIG. LEDS"
   printButton(tabela_textos[5], temC[0], temC[1], temC[2], temC[3]); // "CONTROLE PARAM."
   printButton(tabela_textos[6], graF[0], graF[1], graF[2], graF[3]); // "GRAFICOS"
-  printButton(tabela_textos[7], ledW[0], ledW[1], ledW[2], ledW[3]); // "ALT. VALORES LED"
+  printButton(tabela_textos[160], ledW[0], ledW[1], ledW[2], ledW[3]); // tabela_textos[160] = "TIMERS"
   printButton(tabela_textos[8], tpaA[0], tpaA[1], tpaA[2], tpaA[3]); // "TPA AUTOMATICA"
   printButton(tabela_textos[9], dosA[0], dosA[1], dosA[2], dosA[3]); // "DOSADORAS"
   printButton(tabela_textos[10], wavM[0], wavM[1], wavM[2], wavM[3]); //  "WAVEMAKER"
@@ -115,6 +115,7 @@ void testScreen(boolean refreshAll=false)//-------------------------------- Test
     myGLCD.print(tabela_textos[18], stsT[0]+25, stsT[1]+40);  // "TESTE"
     printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]);  // "INICIO"
     printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]); // "MENU 1";
+    printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]);  // tabela_textos[66] = "VOLTAR"
   } 
   else
   {
@@ -252,7 +253,7 @@ void ledSetScreen()   //-------------------------------- Alterar valores -------
   printButton(tabela_textos[82], savE[0], savE[1], savE[2], savE[3], SMALL); // "SALVAR EEPROM"
   printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]); // "MENU 1";
   printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]);  // "INICIO"
-
+  printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]);  // tabela_textos[66] = "VOLTAR"
 }
 void ledChangeScreen()    //--------------------------------------- Potência dos leds------------------------------ tela =6
 {
@@ -276,8 +277,9 @@ void ledChangeScreen()    //--------------------------------------- Potência do
     printButton("-", (i*38)+10, 125, (i*38)+35, 150, LARGE);
   }
 
-  printButton(tabela_textos[13], prOK[0], prOK[1], prOK[2], prOK[3]); // "SALVAR"
+  printButton(tabela_textos[13], salV[0], salV[1], salV[2], salV[3]); // "SALVAR"
   printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]);  // "INICIO"
+  printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]);  // tabela_textos[66] = "VOLTAR"
   printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]); // "MENU 1";
 }
 void tpaScreen(boolean refreshAll = false) //-------------------------------------------------------- tela =7
@@ -586,7 +588,7 @@ void config_dens_Screen(boolean refreshAll=false)
   myGLCD.printNumI(DEN2beA, 150, 140);
 }
 
-void selecionar_dosadora(boolean refreshAll=false)//---------------------------------------------tela =21
+void selecionar_dosadora()//---------------------------------------------tela =21
 {
   printHeader(tabela_textos[41]); // tabela_textos[41] = "ESCOLHA UMA DOSADORA"
   printButton(tabela_textos[102], dosa1[0], dosa1[1], dosa1[2], dosa1[3]); // tabela_textos[102]
@@ -1378,7 +1380,7 @@ void rever_configuracao_dosadoras()//-------------------------------------------
   printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]); // tabela_textos[66]
 }
 
-void rever_dosagem_automatica() // ----------tela =33
+void rever_dosagem_automatica() // ----------------------------------------------- tela =33
 {
 
   printHeader(tabela_textos[49]); // tabela_textos[49] = "REVER CONF. DA DOSAGEM AUTOMATICA"
@@ -2096,9 +2098,10 @@ void luz_noturna(boolean refreshAll=false)
     printButton("-", almM[0], almM[1], almM[2], almM[3], true);      //Lua nova menos
     printButton("+", almP[0], almP[1], almP[2], almP[3], true);      //Lua nova mais
 
-    printButton(tabela_textos[13], prOK[0], prOK[1], prOK[2], prOK[3]); // "SALVAR"
+    printButton(tabela_textos[13], salV[0], salV[1], salV[2], salV[3]); // "SALVAR"
     printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]); // "INICIO"
-    printButton(tabela_textos[2], menU[0], menU[1], menU[2], menU[3]);  // "MENU 2";
+    printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]);  // "MENU 1";
+    printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]);  // tabela_textos[66] = "VOLTAR";
   }
 
   setFont(LARGE, 255, 255, 255, 0, 0, 0); 
@@ -2110,9 +2113,9 @@ void luz_noturna(boolean refreshAll=false)
 void menuScreen_2()
 {
 
-  printHeader(tabela_textos[2]); // tabela_textos[2] = "MENU 2"
-  printButton(tabela_textos[159], tanD[0], tanD[1], tanD[2], tanD[3]); // 1º botaão, 1ª coluna //tabela_textos[159] = "LUZ NOTURNA"
-  printButton(tabela_textos[160], tesT[0], tesT[1], tesT[2], tesT[3]); // 2º botão, 1ª coluna // tabela_textos[160] = "TIMERS"
+    printHeader(tabela_textos[2]); // tabela_textos[2] = "MENU 2"
+   // printButton("", tanD[0], tanD[1], tanD[2], tanD[3]); // 1º botaão, 1ª coluna
+  //  printButton("", tesT[0], tesT[1], tesT[2], tesT[3]); // 2º botão, 1ª coluna 
   //  printButton("", temC[0], temC[1], temC[2], temC[3]); // 3º botão, 1ª coluna
   //  printButton("", graF[0], graF[1], graF[2], graF[3]); // 4º botão, 1ª coluna
   //  printButton("", ledW[0], ledW[1], ledW[2], ledW[3]); // 1º botão, 2ª coluna
@@ -2414,7 +2417,7 @@ void TimerScreen()
     myGLCD.printNumI(off5_minuto, 293, 211);
   }
 
-  printButton(tabela_textos[2], menU[0], menU[1], menU[2], menU[3]); // Volta ao menu 2. // "MENU 2";
+  printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]); // Volta ao menu 1. // "MENU 1";
   printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]); // Volta ao início.  // "INICIO"
 } 
 //--------------------------------------------- Configurar timers -------------------------------- tela =39
@@ -2481,7 +2484,7 @@ void config_timer(boolean refreshAll=false)
     printButton("-", 187, 135, 231, 178, true); // Botão para baixo
     printButton("-", 255, 135, 299, 178, true); // Botão para baixo
 
-    printButton(tabela_textos[2], menU[0], menU[1], menU[2], menU[3]); // Volta ao menu 2.  // "MENU 2";
+    printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]); // Volta ao menu 1.  // "MENU 1";
     printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]); // Volta ao início. // "INICIO"
     printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]); // Volta ao menu selecionar timer. // "VOLTAR"
     printButton(tabela_textos[13], salV[0], salV[1], salV[2], salV[3]); // Salva as modificações. // "SALVAR"
@@ -2744,8 +2747,21 @@ void config_timer(boolean refreshAll=false)
   }
 }
 
-
-
+//--------------------------------------------- Configurar leds -------------------------------- tela =40
+void config_leds()
+{
+  printHeader(tabela_textos[202]); // tabela_textos[2] = "CONFIGURAR LEDS"
+  printButton(tabela_textos[4], tanD[0], tanD[1], tanD[2], tanD[3]); // 1º botaão, 1ª coluna //tabela_textos[4] = "TESTAR LED"
+  printButton(tabela_textos[7], tesT[0], tesT[1], tesT[2], tesT[3]); // 2º botão, 1ª coluna // tabela_textos[160] = "ALT. VALORES LED"
+  printButton(tabela_textos[159], temC[0], temC[1], temC[2], temC[3]); // 3º botão, 1ª coluna // tabela_textos[159] = "LUZ NOTURNA" 
+  //  printButton("", graF[0], graF[1], graF[2], graF[3]); // 4º botão, 1ª coluna
+  //  printButton("", ledW[0], ledW[1], ledW[2], ledW[3]); // 1º botão, 2ª coluna
+  //  printButton("", tpaA[0], tpaA[1], tpaA[2], tpaA[3]); // 2º botão, 2ª coluna
+  //  printButton("", dosA[0], dosA[1], dosA[2], dosA[3]); // 3º botão, 2ª coluna
+  //  printButton("", wavM[0], wavM[1], wavM[2], wavM[3]); // 4º botão, 2ª coluna
+  printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]); // "MENU 1";
+  printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]); // "INICIO"
+}
 
 
 
