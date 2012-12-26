@@ -340,9 +340,9 @@ void ReadFromEEPROM()
 {
   int k = EEPROM.read(0);
   if (k==123) {
-    for (int i=1; i<89; i++)  {
+    for (int i=1; i<97; i++)  {
       wled[i] = EEPROM.read(i);
-      bled[i] = EEPROM.read(i+88);
+      bled[i] = EEPROM.read(i+96);
     }  
   }
 

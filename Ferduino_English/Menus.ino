@@ -216,18 +216,24 @@ void ledSetScreen()   //-------------------------------- Alterar valores -------
 {
   int a;
 
-  if (WorB) {
-    for (int i; i<96; i++)
+  if (WorB == true) 
+  {
+    for (int i = 0; i<96; i++)
+    {
       tled[i] = wled[i];
+    }
     setFont(SMALL, 255, 255, 0, 255, 255, 0);
     myGLCD.fillRect (1, 1, 318, 14);
     myGLCD.setColor(0, 0, 0);
     myGLCD.print(tabela_textos[77],15, 2); // "POTENCIA DOS LEDS BRANCOS: 255 = 100%"
     printButton(tabela_textos[78], leWB[0], leWB[1], leWB[2], leWB[3], SMALL); // "AZUL"
   }
-  else {
-    for (int i; i<96; i++)
+  else 
+  {
+    for (int i = 0; i < 96; i++)
+    {
       tled[i] = bled[i];
+    }
     setFont(SMALL, 255, 255, 0, 255, 255, 0);
     myGLCD.fillRect (1, 1, 318, 14);
     myGLCD.setColor(0, 0, 0);
@@ -236,12 +242,14 @@ void ledSetScreen()   //-------------------------------- Alterar valores -------
   }
 
   setFont(SMALL, 255, 255, 255, 0, 0, 0);
-  for (int i=0; i<12; i++) {
+  for (int i = 0; i < 12; i++) 
+  {
     myGLCD.setColor(0, 255, 255);
     myGLCD.printNumI((i*2), (i*26)+13, 14); 
     myGLCD.printNumI(((i*2)+2), (i*26)+13, 24);
-    for (int j=0; j<8; j++) {
-      a= (i*8)+j;         
+    for (int j=0; j<8; j++) 
+    {
+      a = (i*8)+j;         
       myGLCD.setColor(255, 255, 255);
       myGLCD.printNumI(tled[a], (i*26)+7, (j*18)+39);
       myGLCD.setColor(100, 100, 100);
@@ -255,32 +263,49 @@ void ledSetScreen()   //-------------------------------- Alterar valores -------
   printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]);  // "INICIO"
   printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]);  // tabela_textos[66] = "VOLTAR"
 }
-void ledChangeScreen()    //--------------------------------------- Potência dos leds------------------------------ tela =6
+void ledChangeScreen(boolean refreshAll=false)    //--------------------------------------- Potência dos leds------------------------------ tela =6
 {
-  if (WorB)
-    printHeader(tabela_textos[30]); // tabela_textos[30] = "ALTERAR POTENCIAS DOS LEDS BRANCOS"
-  else
-    printHeader(tabela_textos[31]); // tabela_textos[31] = "ALTERAR POTENCIA DOS LEDS AZUIS"
-
-  setFont(SMALL, 0, 255, 255, 0,0,0);
-  for (int i=0; i<12; i++) {
-    myGLCD.setColor(0, 255, 255);
-    myGLCD.printNumI(((i*2)), (i*26)+10, 22);
-    myGLCD.printNumI(((i*2)+2), (i*26)+10, 33);
-    myGLCD.setColor(100, 100, 100);
-    myGLCD.drawRect((i*26)+4, 20 , (i*26)+30, 45);
-  }
-
-  for (int i=0; i<8; i++)
+  if(refreshAll == true)
   {
-    printButton("+", (i*38)+10, 70, (i*38)+35, 95, LARGE);
-    printButton("-", (i*38)+10, 125, (i*38)+35, 150, LARGE);
-  }
+    if (WorB == true)
+    {
+      printHeader(tabela_textos[30]); // tabela_textos[30] = "ALTERAR POTENCIAS DOS LEDS BRANCOS"
+    }
+    else
+    {
+      printHeader(tabela_textos[31]); // tabela_textos[31] = "ALTERAR POTENCIA DOS LEDS AZUIS"
+    }
 
-  printButton(tabela_textos[13], salV[0], salV[1], salV[2], salV[3]); // "SALVAR"
-  printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]);  // "INICIO"
-  printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]);  // tabela_textos[66] = "VOLTAR"
-  printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]); // "MENU 1";
+    setFont(SMALL, 0, 255, 255, 0,0,0);
+
+
+    for (int i=0; i<12; i++) 
+    {
+      myGLCD.setColor(0, 255, 255);
+      myGLCD.printNumI(((i*2)), (i*26)+10, 22);
+      myGLCD.printNumI(((i*2)+2), (i*26)+10, 33);
+      myGLCD.setColor(100, 100, 100);
+      myGLCD.drawRect((i*26)+4, 20 , (i*26)+30, 45);
+    }
+    printButton(tabela_textos[13], salV[0], salV[1], salV[2], salV[3]); // "SALVAR"
+    printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]); // "INICIO"
+    printButton(tabela_textos[66], volT[0], volT[1], volT[2], volT[3]); // tabela_textos[66] = "VOLTAR"
+    printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]);  // "MENU 1";
+    setFont(SMALL, 255, 0, 0, 0, 0, 0);
+    myGLCD.print(tabela_textos[203],50, 105);  // tabela_textos[203] = "SELECIONE UM PERIODO."
+
+  }
+  if(periodo_selecionado == true)
+  {
+    for (int i=0; i<8; i++)
+    {
+      myGLCD.setColor(0, 0, 0);
+      myGLCD.fillRect(45,105,300,121);
+      setFont(SMALL, 255, 255, 255, 0, 0, 0);
+      printButton("+", (i*38)+10, 70, (i*38)+35, 95, LARGE);
+      printButton("-", (i*38)+10, 125, (i*38)+35, 150, LARGE);
+    }
+  }
 }
 void tpaScreen(boolean refreshAll = false) //-------------------------------------------------------- tela =7
 {
@@ -2113,8 +2138,8 @@ void luz_noturna(boolean refreshAll=false)
 void menuScreen_2()
 {
 
-    printHeader(tabela_textos[2]); // tabela_textos[2] = "MENU 2"
-   // printButton("", tanD[0], tanD[1], tanD[2], tanD[3]); // 1º botaão, 1ª coluna
+  printHeader(tabela_textos[2]); // tabela_textos[2] = "MENU 2"
+  // printButton("", tanD[0], tanD[1], tanD[2], tanD[3]); // 1º botaão, 1ª coluna
   //  printButton("", tesT[0], tesT[1], tesT[2], tesT[3]); // 2º botão, 1ª coluna 
   //  printButton("", temC[0], temC[1], temC[2], temC[3]); // 3º botão, 1ª coluna
   //  printButton("", graF[0], graF[1], graF[2], graF[3]); // 4º botão, 1ª coluna
@@ -2751,9 +2776,9 @@ void config_timer(boolean refreshAll=false)
 void config_leds()
 {
   printHeader(tabela_textos[202]); // tabela_textos[2] = "CONFIGURAR LEDS"
-  printButton(tabela_textos[4], tanD[0], tanD[1], tanD[2], tanD[3]); // 1º botaão, 1ª coluna //tabela_textos[4] = "TESTAR LED"
-  printButton(tabela_textos[7], tesT[0], tesT[1], tesT[2], tesT[3]); // 2º botão, 1ª coluna // tabela_textos[160] = "ALT. VALORES LED"
-  printButton(tabela_textos[159], temC[0], temC[1], temC[2], temC[3]); // 3º botão, 1ª coluna // tabela_textos[159] = "LUZ NOTURNA" 
+  printButton(tabela_textos[4], tanD[0], tanD[1], tanD[2], tanD[3]); // 1º botaão, 1ª coluna 
+  printButton(tabela_textos[7], tesT[0], tesT[1], tesT[2], tesT[3]); // 2º botão, 1ª coluna 
+  printButton(tabela_textos[159], temC[0], temC[1], temC[2], temC[3]); // 3º botão, 1ª coluna 
   //  printButton("", graF[0], graF[1], graF[2], graF[3]); // 4º botão, 1ª coluna
   //  printButton("", ledW[0], ledW[1], ledW[2], ledW[3]); // 1º botão, 2ª coluna
   //  printButton("", tpaA[0], tpaA[1], tpaA[2], tpaA[3]); // 2º botão, 2ª coluna
@@ -2762,6 +2787,7 @@ void config_leds()
   printButton(tabela_textos[1], menU[0], menU[1], menU[2], menU[3]); // "MENU 1";
   printButton(tabela_textos[11], iniC[0], iniC[1], iniC[2], iniC[3]); // "INICIO"
 }
+
 
 
 

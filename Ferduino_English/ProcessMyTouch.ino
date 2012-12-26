@@ -7,6 +7,11 @@ void processMyTouch()
   if ((x>=iniC[0]) && (x<=iniC[2]) && (y>=iniC[1]) && (y<=iniC[3]) && (dispScreen!=0) && (LEDtestTick == false))  // volta ao inicio
   {
     waitForIt(iniC[0], iniC[1], iniC[2], iniC[3]);
+    if(dispScreen == 5)
+    {
+     ReadFromEEPROM();
+    }
+    periodo_selecionado = false;
     dispScreen=0;
     clearScreen();
     mainScreen(true);   
@@ -564,32 +569,38 @@ void processMyTouch()
         dispScreen=1;
         clearScreen();
         menuScreen();
+        ReadFromEEPROM();
       }
       if ((x>=volT[0]) && x<=volT[2] && (y>=volT[1]) && (y<=volT[3]))           // volta a tela configurar leds
       {
         waitForIt(volT[0], volT[1], volT[2], volT[3]);
         dispScreen=40;
         clearScreen();
-        config_leds(); 
+        config_leds();
+        ReadFromEEPROM();
       } 
-      if ((x>=leWB[0]) && (x<=leWB[2]) && (y>=leWB[1]) && (y<=leWB[3]))       //press show white/blue
+      if ((x>=leWB[0]) && (x<=leWB[2]) && (y>=leWB[1]) && (y<=leWB[3]))       // Alterna entre a tabela do azuis e brancos
       {
         waitForIt(leWB[0], leWB[1], leWB[2], leWB[3]);
-        if (WorB)
+        if (WorB == true)
+        {
           WorB = false;
+        }
         else
+        {
           WorB = true;
+        }
         clearScreen();
         ledSetScreen();
       } 
-      else if ((x>=leST[0]) && (x<=leST[2]) && (y>=leST[1]) && (y<=leST[3]))       //press change
+      else if ((x>=leST[0]) && (x<=leST[2]) && (y>=leST[1]) && (y<=leST[3]))       // Alterar valores dos leds
       {
         waitForIt(leST[0], leST[1], leST[2], leST[3]);
         dispScreen=6;
         clearScreen();
-        ledChangeScreen();
+        ledChangeScreen(true);
       }
-      else if ((x>=savE[0]) && (x<=savE[2]) && (y>=savE[1]) && (y<=savE[3]))      //press save to EEPROM
+      else if ((x>=savE[0]) && (x<=savE[2]) && (y>=savE[1]) && (y<=savE[3]))      // Salva os valores na EEPROM
       {
         waitForIt(savE[0], savE[1], savE[2], savE[3]);
         SaveLEDToEEPROM();
@@ -597,35 +608,40 @@ void processMyTouch()
         clearScreen();
         mainScreen(true);
       }
-
-
       break;
-    case 6:             //----------------------------------Tela alterar potencia dos leds---------------------
-      if ((x>=salV[0]) && (x<=salV[2]) && (y>=salV[1]) && (y<=salV[3]))       //Salvar
+    case 6:             //---------------------------------- Tela alterar potencia dos leds ---------------------
+      if ((x>=salV[0]) && (x<=salV[2]) && (y>=salV[1]) && (y<=salV[3]))       // Salvar tabela temporária
       {
         waitForIt(salV[0], salV[1], salV[2], salV[3]);
         dispScreen=5;
-        if (WorB) {
-          for (int i; i<88; i++) {
+        if (WorB == true) 
+        {
+          for (int i; i<96; i++) 
+          {
             wled[i]=tled[i]; 
           }
         } 
-        else {
-          for (int i; i<88; i++) {
+        else 
+        {
+          for (int i; i<96; i++) 
+          {
             bled[i]=tled[i]; 
           }
         }
         clearScreen();
         ledSetScreen();
+        periodo_selecionado = false;
       }
-      else if ((y>=15) && (y<=40))                                    //top row with times was touched
+      else if ((y>=15) && (y<=40))                                    // Seleção de período
       {
         if ((x>=4) && (x<=316))
         {
+          periodo_selecionado = true;
+          ledChangeScreen();
           int oldLCT = LedChangTime;
           LedChangTime = map(x, 3, 320, 0, 12);                
 
-          if (oldLCT != LedChangTime)                        //highlight touched time
+          if (oldLCT != LedChangTime)                        // Realçar período tocado
           {
             myGLCD.setColor(0, 0, 0);
             myGLCD.fillRect((oldLCT*26)+5, 21, (oldLCT*26)+29, 45);
@@ -638,18 +654,17 @@ void processMyTouch()
             myGLCD.printNumI((LedChangTime*2), (LedChangTime*26)+10, 22);
             myGLCD.printNumI(((LedChangTime*2)+2), (LedChangTime*26)+10, 33);
 
-            for (int i=0; i<8; i++)                          //print led values for highlighted time
+            for (int i=0; i<8; i++)                          // Imprime valores do período.
             {
               int k=(LedChangTime*8)+i;
-
               setFont(SMALL, 255, 255, 255, 0, 0, 0);
-              myGLCD.print( "   ", (i*38)+12, 105);
+              myGLCD.print("   ", (i*38)+12, 105);
               myGLCD.printNumI( tled[k], (i*38)+12, 105);
             }
           }
         }
       } 
-      else if ((y>=70) && (y<=95))       //plus buttons were touched
+      else if ((y>=70) && (y<=95) && (periodo_selecionado == true))       // Botão +
       {
         for (int i=0; i<8; i++) {                
           if ((x>=(i*38)+10) && (x<=(i*38)+35)) {
@@ -662,7 +677,7 @@ void processMyTouch()
           }
         }
       }
-      else if ((y>=125) && (y<=150))     //minus buttons were touched
+      else if ((y>=125) && (y<=150)  && (periodo_selecionado == true))     // Botão -
       {
         for (int i=0; i<8; i++) {                
           if ((x>=(i*38)+10) && (x<=(i*38)+35)) {
@@ -671,26 +686,27 @@ void processMyTouch()
             if (tled[k]<0) {
               tled[k]=0; 
             }
-            myGLCD.print( "  ", (i*38)+20, 105);
+            myGLCD.print("  ", (i*38)+20, 105);
             myGLCD.printNumI( tled[k], (i*38)+12, 105);
           }
         }  
       }
-      if ((x>=menU[0]) && x<=menU[2] && (y>=menU[1]) && (y<=menU[3]))           /// volta ao menu
+      if ((x>=menU[0]) && x<=menU[2] && (y>=menU[1]) && (y<=menU[3]))           // Volta ao menu
       {
         waitForIt(menU[0], menU[1], menU[2], menU[3]);
         dispScreen=1;
         clearScreen();
-        menuScreen(); 
+        menuScreen();
+        periodo_selecionado = false; 
       }
-      if ((x>=volT[0]) && x<=volT[2] && (y>=volT[1]) && (y<=volT[3]))           // volta a tela configurar leds
+      if ((x>=volT[0]) && x<=volT[2] && (y>=volT[1]) && (y<=volT[3]))           // Volta a tela configurar leds
       {
         waitForIt(volT[0], volT[1], volT[2], volT[3]);
         dispScreen=5;
         clearScreen();
-        ledSetScreen(); 
+        ledSetScreen();
+        periodo_selecionado = false; 
       }
-
       break;
     case 7: //--------------------------------------------- configurar tpa autom.-----------------------------------
       if ((y >= houU[1]) && (y <= houU[3])) // Buttons: Time UP
