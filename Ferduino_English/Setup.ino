@@ -18,8 +18,8 @@ void setup()
   pinMode(solenoide1Pin, OUTPUT);
   pinMode(multiplexadorS0Pin, OUTPUT);
   pinMode(multiplexadorS1Pin, OUTPUT);
-  pinMode (4, OUTPUT);  //sd card
-  digitalWrite (4, HIGH);
+//  pinMode (4, OUTPUT);  //sd card
+//  digitalWrite (4, HIGH);
   pinMode (dosadora1, OUTPUT);
   pinMode (dosadora2, OUTPUT);
   pinMode (dosadora3, OUTPUT);
@@ -64,45 +64,9 @@ void setup()
   card.init(SPI_QUARTER_SPEED,chipselect); // Inicia a comunicação com o cartão SD.
   volume.init(&card);
   root.openRoot(&volume);
+
+  iniciar_stamps();
   
   mainScreen(true); // Exibe a tela inicial no LCD.
-  
-  Open_channel(ph1); 
-  delay(50);
-  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
-  Serial2.print('\r');
-  delay(1000);
-  Serial2.flush();
-  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
-  Serial2.print('\r');
-  delay(1000);
-  Open_channel(ph2);
-  delay(50);
-  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
-  Serial2.print('\r');
-  delay(1000);
-  Serial2.flush();
-  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
-  Serial2.print('\r');
-  delay(1000);
-  Open_channel(orp);
-  delay(50);
-  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
-  Serial2.print('\r');
-  delay(1000);
-  Serial2.flush();
-  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
-  Serial2.print('\r');
-  delay(1000);    
-  Open_channel(ec);
-  delay(50);
-  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
-  Serial2.print('\r');
-  delay(1000);
-  Serial2.flush();
-  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
-  Serial2.print('\r');
-  delay(1000);
-
 }
 

@@ -114,6 +114,46 @@ void parametros()
 */
 }
 
+void iniciar_stamps()
+{
+    Open_channel(ph1); 
+  delay(50);
+  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
+  Serial2.print('\r');
+  delay(1000);
+  Serial2.flush();
+  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
+  Serial2.print('\r');
+  delay(1000);
+  Open_channel(ph2);
+  delay(50);
+  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
+  Serial2.print('\r');
+  delay(1000);
+  Serial2.flush();
+  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
+  Serial2.print('\r');
+  delay(1000);
+  Open_channel(orp);
+  delay(50);
+  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
+  Serial2.print('\r');
+  delay(1000);
+  Serial2.flush();
+  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
+  Serial2.print('\r');
+  delay(1000);    
+  Open_channel(ec);
+  delay(50);
+  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
+  Serial2.print('\r');
+  delay(1000);
+  Serial2.flush();
+  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
+  Serial2.print('\r');
+  delay(1000);
+}
+
 void Open_channel(short channel)
 {
   switch (channel) 

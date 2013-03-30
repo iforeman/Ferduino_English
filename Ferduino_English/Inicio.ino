@@ -1,14 +1,12 @@
-//---------------------------------------main screen ----------------------------------------------tela =0
+//---------------------------------------Tela inicial ----------------------------------------------tela =0
 void mainScreen(boolean refreshAll=false)
 {
   int ledLevel, s, u;
   String oldval, rtc1, rtcm;
   oldval = day;
-  day = String(t.date);                             //refresh date if different
+  day = String(t.date);                             //Atualiza se a data for diferente
 
-  myGLCD.setColor(64, 64, 64);
-  myGLCD.fillRect(0, 226, 400, 239);
-  setFont(SMALL, 255, 255, 0, 64, 64, 64);
+  setFont(SMALL, 255, 255, 0, 0, 0, 0);
   myGLCD.print(rtc.getDOWStr(FORMAT_LONG), 10, 227);
   myGLCD.printNumI(t.date, 75, 227);
   myGLCD.print("DE", 95, 227);
@@ -27,7 +25,7 @@ void mainScreen(boolean refreshAll=false)
     myGLCD.fillRect(98, 210, 235, 226); //Apaga descrição da fase lunar.
     
     setFont(SMALL, 255, 255, 255, 0, 0, 0);
-    myGLCD.print(bufferLP, 110, 210); //Escreve descrição da fase lunar
+    myGLCD.print(bufferLP, 98, 210); //Escreve descrição da fase lunar
 
     float lunarCycle = moonPhase(t.year,t.mon, t.date); //get a value for the lunar cycle
     if ((lunarCycle*100) < 1) //Print % of Full to LCD
@@ -37,14 +35,17 @@ void mainScreen(boolean refreshAll=false)
     else { 
       myGLCD.printNumF(lunarCycle*100, 1, 240, 210);
     }
-    myGLCD.print(tabela_textos[181], 280, 210); // tabela_textos[181] = "% ILUMINADA"
-    myGLCD.print(tabela_textos[182], 10, 210); // tabela_textos[182] = "FASE LUNAR:"
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[181])));
+    myGLCD.print(buffer, 280, 210); // tabela_textos[181] = "% ILUMINADA"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[182])));
+    myGLCD.print(buffer, 10, 210); // tabela_textos[182] = "FASE LUNAR:"
   }
   if ((blueLed != bled_out) || refreshAll)       //refresh blue led displays
   {
     blueLed = bled_out;
     ledLevel = LedToPercent(bled_out);
-    oldval = "B: " + String(ledLevel) + "%  ";
+    oldval = "A: " + String(ledLevel) + "%  ";
     char bufferB[9];
     oldval.toCharArray(bufferB, 11);
     s= 117 + (bled_out*1.3);
@@ -65,7 +66,7 @@ void mainScreen(boolean refreshAll=false)
   {
     whiteLed = wled_out;
     ledLevel = LedToPercent(wled_out);
-    oldval = "W: " + String(ledLevel) + "%  ";
+    oldval = "B: " + String(ledLevel) + "%  ";
     char bufferW[9];
     oldval.toCharArray(bufferW, 11);
     s= 117 + (wled_out*1.3);
@@ -84,23 +85,51 @@ void mainScreen(boolean refreshAll=false)
     myGLCD.drawLine(373, 25, 373, 39);
   }
 
-  if ( refreshAll)                                  //draw static elements
+  if ( refreshAll == true)                                  //draw static elements
   {
-    setFont(SMALL, 255, 255, 255, 0, 0, 0);
-    myGLCD.print(tabela_textos[183], 12, 86);  // tabela_textos[183] = "T.DISSIPADOR:"  
-    myGLCD.print(tabela_textos[184], 12, 67); // tabela_textos[184] = "TEMP. AGUA:"
-    myGLCD.print(tabela_textos[185], 12, 105); // tabela_textos[185] = "PH DO AQUARIO:"
-    myGLCD.print(tabela_textos[186], 12, 124); // tabela_textos[186] =  "PH DO REATOR:"
-    myGLCD.print(tabela_textos[187], 12, 143); // tabela_textos[187] = "DENSIDADE:"
-    myGLCD.print(tabela_textos[188], 12, 162); // tabela_textos[188] = "ORP:"
+     myGLCD.setColor(64, 64, 64);
+     myGLCD.fillRect(0, 226, 400, 239);
 
-    myGLCD.print(tabela_textos[189], 212, 67); // tabela_textos[189] = "CHILLER:"
-    myGLCD.print(tabela_textos[190], 212, 86); // tabela_textos[190] = "AQUECEDOR:"
-    myGLCD.print(tabela_textos[191], 212, 105); // tabela_textos[191] = "REATOR:"
-    myGLCD.print(tabela_textos[192], 212, 124); // tabela_textos[192] = "OZONIO:"
-    myGLCD.print(tabela_textos[193], 212, 143); // tabela_textos[193] = "REPOSICAO:"
-    myGLCD.print(tabela_textos[194], 212, 162); // tabela_textos[194] = "NIVEL:"
-    myGLCD.print(tabela_textos[195], 212, 181); // tabela_textos[195] = "TPA:" // Troca de Água Parcial
+    setFont(SMALL, 255, 255, 255, 0, 0, 0);
+    
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[183])));
+    myGLCD.print(buffer, 12, 86);  // tabela_textos[183] = "T.DISSIPADOR:"  
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[184])));
+    myGLCD.print(buffer, 12, 67); // tabela_textos[184] = "TEMP. AGUA:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[185])));
+    myGLCD.print(buffer, 12, 105); // tabela_textos[185] = "PH DO AQUARIO:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[186])));
+    myGLCD.print(buffer, 12, 124); // tabela_textos[186] =  "PH DO REATOR:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[187])));
+    myGLCD.print(buffer, 12, 143); // tabela_textos[187] = "DENSIDADE:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[188])));
+    myGLCD.print(buffer, 12, 162); // tabela_textos[188] = "ORP:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[189])));
+    myGLCD.print(buffer, 212, 67); // tabela_textos[189] = "CHILLER:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[190])));
+    myGLCD.print(buffer, 212, 86); // tabela_textos[190] = "AQUECEDOR:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[191])));
+    myGLCD.print(buffer, 212, 105); // tabela_textos[191] = "REATOR:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[192])));
+    myGLCD.print(buffer, 212, 124); // tabela_textos[192] = "OZONIO:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[193])));
+    myGLCD.print(buffer, 212, 143); // tabela_textos[193] = "REPOSICAO:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[194])));
+    myGLCD.print(buffer, 212, 162); // tabela_textos[194] = "NIVEL:"
+
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[195])));
+    myGLCD.print(buffer, 212, 181); // tabela_textos[195] = "TPA:" // Troca de Água Parcial
 
     setFont (LARGE, 0, 255, 0, 0, 0, 0);
     myGLCD.drawCircle(179, 84, 2);
@@ -121,47 +150,47 @@ void mainScreen(boolean refreshAll=false)
 
   myGLCD.setColor(0, 0, 0);                      
   myGLCD.fillRect(100, 62, 173, 80);               //Apagar temperatura
-  myGLCD.fillRect(102, 83, 170, 99);               //Apagar temp. dissipador
-  myGLCD.fillRect(100, 102, 190, 119);               //Apagar PH do aquario
-  myGLCD.fillRect(100, 121, 190, 137);               //Apagar PH do reator
+  myGLCD.fillRect(113, 83, 170, 99);               //Apagar temp. dissipador
+  myGLCD.fillRect(124, 102, 190, 119);               //Apagar PH do aquario
+  myGLCD.fillRect(118, 121, 190, 137);               //Apagar PH do reator
   myGLCD.fillRect(88, 140, 150, 156);               //Apagar densidade
   myGLCD.fillRect(45, 160, 97, 178);               //Apagar ORP
 
-  myGLCD.fillRect(268, 60, 350, 78);               //Apagar noticia de chiller ligado/desligado
-  myGLCD.fillRect(268, 79, 350, 97);              // Apagar noticia de aquecedor ligado/desligado
-  myGLCD.fillRect(268, 100, 350, 118);              // Apagar noticia de reator ligado/desligado
-  myGLCD.fillRect(268, 119, 350, 137);              // Apagar noticia de ozonio ligado/desligado
-  myGLCD.fillRect(268, 138, 350, 155);              // Apagar noticia de reposicao ligado/desligado
-  myGLCD.fillRect(268, 158, 390, 174);              // Apagar noticia de nivel normal/anormal
-  myGLCD.fillRect(268, 178, 350, 195);              // Apagar noticia de TPA ligado/desligado
+  myGLCD.fillRect(282, 60, 330, 78);               //Apagar noticia de chiller ligado/desligado
+  myGLCD.fillRect(292, 79, 350, 97);              // Apagar noticia de aquecedor ligado/desligado
+  myGLCD.fillRect(270, 100, 320, 118);              // Apagar noticia de reator ligado/desligado
+  myGLCD.fillRect(270, 119, 320, 137);              // Apagar noticia de ozonio ligado/desligado
+  myGLCD.fillRect(287, 138, 350, 155);              // Apagar noticia de reposicao ligado/desligado
+  myGLCD.fillRect(263, 158, 390, 174);              // Apagar noticia de nivel normal/anormal
+  myGLCD.fillRect(245, 178, 365, 195);              // Apagar noticia de TPA ligado/desligado
 
   setFont(LARGE, 0, 255, 0, 0, 0, 0);  
   myGLCD.printNumF(tempC, 1, 102, 64); // Temperatura da agua
-  myGLCD.printNumF(tempH, 1, 102, 83);   //Temperatura dissipador
-  myGLCD.printNumF(PHA, 2, 102, 102);   //PH aqua
-  myGLCD.printNumF(PHR, 2, 102, 121);  //PH reator
+  myGLCD.printNumF(tempH, 1, 111, 83);   //Temperatura dissipador
+  myGLCD.printNumF(PHA, 2, 122, 102);   //PH aqua
+  myGLCD.printNumF( PHR, 2, 116, 121);  //PH reator
   myGLCD.printNumI(DEN, 88, 140);   //densidade
   myGLCD.printNumI( ORP, 45, 160);  //ORP 
 
   if (tempCflag==true) 
   {
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print("ON", 270, 62);                       //chiller ligado
+    myGLCD.print("ON", 279, 62);                       //chiller ligado
   }
   else if (tempCflag==false) 
   {
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print("OFF", 270, 62);                        //chiller desligado
+    myGLCD.print("OFF", 279, 62);                        //chiller desligado
   }
   if (tempHflag==true) 
   {
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print("ON", 270, 81);           // aquecedor ligado
+    myGLCD.print("ON", 289, 81);           // aquecedor ligado
   } 
   else if (tempHflag==false) 
   {
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print("OFF", 270, 81);           // aquecedor desligado
+    myGLCD.print("OFF", 289, 81);           // aquecedor desligado
   } 
   if (PHRflag==true) 
   {              
@@ -186,31 +215,33 @@ void mainScreen(boolean refreshAll=false)
   if ((tpa_em_andamento==true) && (falha_tpa == false))
   {             
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print("ON", 270, 180);           // TPA em andamento
+    myGLCD.print("ON", 250, 180);           // TPA em andamento
   }
   else if ((tpa_em_andamento==false) && (falha_tpa == false))
   {             
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print("OFF", 270, 180);           // TPA não esta em andamento
+    myGLCD.print("OFF", 250, 180);           // TPA não esta em andamento
   }
   if (nivel_status==true) {             
     setFont(LARGE, 255, 0, 0, 0, 0, 0);
-    myGLCD.print(tabela_textos[196], 270, 160);           // Nivel baixo em vermelho // tabela_textos[196] = "BAIXO!"
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[196])));
+    myGLCD.print(buffer, 265, 160);           // Nivel baixo em vermelho // tabela_textos[196] = "BAIXO!"
   }
   else if (nivel_status==false) 
   {             
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print(tabela_textos[197], 270, 160);           // Nivel nornal // tabela_textos[197] = "NORMAL"
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[197])));
+    myGLCD.print(buffer, 265, 160);           // Nivel nornal // tabela_textos[197] = "NORMAL"
   }  
   if (ato==true) 
   {             
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print("ON", 270, 140);           // reposicao ligada
+    myGLCD.print("ON", 289, 140);           // reposicao ligada
   }
   else if (ato==false)
   {             
     setFont(LARGE, 0, 255, 0, 0, 0, 0);
-    myGLCD.print("OFF", 270, 140);           // reposicao desligada
+    myGLCD.print("OFF", 289, 140);           // reposicao desligada
   }
 
   if (tempAflag==true) 
@@ -221,12 +252,12 @@ void mainScreen(boolean refreshAll=false)
   if (PHAAflag==true) 
   {                                //print alarm
     setFont(LARGE, 255, 0, 0, 0, 0, 0);
-    myGLCD.printNumF(PHA, 2, 102, 102);   //PH do aquario em vermelho
+    myGLCD.printNumF(PHA, 2, 122, 102);   //PH do aquario em vermelho
   }    
   if (PHRAflag==true) 
   {                                //print alarm
     setFont(LARGE, 255, 0, 0, 0, 0, 0);
-    myGLCD.printNumF(PHR, 2, 102, 121);   //PH do reator em vermelho
+    myGLCD.printNumF(PHR, 2, 116, 121);   //PH do reator em vermelho
   }
   if (ORPAflag==true) 
   {                                //print alarm
@@ -241,7 +272,8 @@ void mainScreen(boolean refreshAll=false)
   if (falha_tpa == true)
   {             
     setFont(LARGE, 255, 0, 0, 0, 0, 0);
-    myGLCD.print(tabela_textos[86], 270, 180);           // Sinaliza falha durante uma TPA // tabela_textos[86] = "FAILURE!"
+    strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[86])));
+    myGLCD.print(buffer, 250, 180);           // Sinaliza falha durante uma TPA // tabela_textos[86] = "FALHA!"
   }  
 }
 

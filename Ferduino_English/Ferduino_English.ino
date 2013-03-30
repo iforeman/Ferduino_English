@@ -1,4 +1,3 @@
-
 ///*****************************************************************************************************************************************************
 //......................................................................................................................................................
 //...............           .           ...           .....         . .....     ..... .   ...     ...     .....     .....           ....................
@@ -22,7 +21,7 @@
 //******* Dúvidas, sugestões e elogios: fefegarcia_1@hotmail.com ***************************************************************************************
 //*****************************************************************************************************************************************************/
 
-// Este programa é compatível com a IDE 1.0.2 desde que as bibliotecas "WConstants.h" e "wiring.h" sejam colocadas na pasta ...arduino-1.0.2\hardware\arduino\cores\arduino.
+// Este programa é compatível com a IDE 1.0.4 desde que as bibliotecas "WConstants.h" e "wiring.h" sejam colocadas na pasta ...arduino-1.0.4\hardware\arduino\cores\arduino.
 
 //---------------------------------------------------------
 
@@ -49,21 +48,18 @@
 //*************************************************************************************************
 //*************** Biliotecas utilizadas ***********************************************************
 //*************************************************************************************************
-#include <ITDB02_Graph16.h> // Comente esta linha caso o seu LCD não seja o ITDB32WC
-#include <ITDB02_Touch.h> // Comente esta linha caso o seu LCD não seja o ITDB32WC
-
-//#include <UTFT.h>    // Descomente esta linha caso o seu LCD seja o ITDB32WD
-//#include <UTouch.h> // Descomente esta linha caso o seu LCD seja o ITDB32WD
-
+#include <UTFT.h>    // Descomente esta linha caso o seu LCD seja o ITDB32WD
+#include <UTouch.h> // Descomente esta linha caso o seu LCD seja o ITDB32WD
 #include <Wire.h>
 #include <EEPROM.h>
 #include <writeAnything.h> // Funções de leitura e gravação da EEPROM.
-#include <DS1307.h>
+#include <DS1307.h>  // Biblioteca do Henning Karlsen
 #include <OneWire.h>
 #include <DallasTemperature.h>
 #include <SdFat.h>
 #include <SdFatUtil.h>
 #include <EtherCard.h>
+#include <avr/pgmspace.h>
 
 //****************************************************************************************************
 //***************** Sensores de temperatura **********************************************************
@@ -80,6 +76,7 @@ DeviceAddress sensor_dissipador = {0x28, 0xE1, 0x96, 0xAA, 0x03, 0x00, 0x00, 0x7
 #define SMALL false
 extern uint8_t SmallFont[];   // Declara que fontes vamos usar
 extern uint8_t BigFont[];     // Declara que fontes vamos usar
+char buffer[45];
 
 //****************************************************************************************************
 //****************** Define funções dos pinos digitais e analógicos **********************************
@@ -128,11 +125,8 @@ boolean cd=false;
 //*******************************************************************************************************
 //********************** Variáveis das fuções do touch screen e tela inicial ****************************
 //*******************************************************************************************************
-ITDB02        myGLCD(38,39,40,41,1); // Comente esta linha caso o seu LCD não seja o ITDB32WC
-ITDB02_Touch  myTouch(6,5,4,3,2); // Comente esta linha caso o seu LCD não seja o ITDB32WC
-
-//UTFT        myGLCD(ITDB32WD, 38,39,40,41);   //Descomente esta linha caso o seu LCD seja o ITDB32WD
-//UTouch      myTouch(6,5,4,3,2); // Descomente esta linha caso o seu LCD seja o ITDB32WD
+UTFT        myGLCD(x, 38,39,40,41);   //"X" é o modelo do seu LCD.
+UTouch      myTouch(6,5,4,3,2); 
 
 int x, y;                  // Coordenadas do touch screen
 long previousMillis = 0;
@@ -361,10 +355,10 @@ int tpa_status;
 //************************* Funções do ethernet shield ************************************
 //*****************************************************************************************
 
-boolean Ethernet_Shield = true; // Altere para "false" caso não tenha um Ethernet Shield conectado ao Arduino.
+boolean Ethernet_Shield = false; // Altere para "false" caso não tenha um Ethernet Shield conectado ao Arduino.
 
 #define FEED    "xxxxx"               // Número do projeto(cosm.com).
-#define APIKEY  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" //Senha do projeto(cosm.com)
+ #define APIKEY  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" //Senha do projeto(cosm.com)
 
 static byte mymac[] = {0x54, 0x55, 0x58, 0x10, 0x00, 0x26}; // Este mac deve ser único na rede.
 static byte myip[] = {192, 168, 2, 105};

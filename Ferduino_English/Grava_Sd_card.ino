@@ -11,7 +11,7 @@ void logtempgraf() //Grava dados no SD CARD para gerar  grafico de temperatura.
   oldminuto1 = time1;
   time1 = t.min;
 
-  digitalWrite (4, LOW);  
+  //digitalWrite (4, LOW);  
 
   if (oldminuto1!=time1)
   {
@@ -37,7 +37,7 @@ void logtempgraf() //Grava dados no SD CARD para gerar  grafico de temperatura.
     file.open(&root, "LOGTDIA.TXT", O_WRITE);
     file.remove();
   } 
-  digitalWrite (4, HIGH);  
+  //digitalWrite (4, HIGH);  
 }
 
 void logphagraf() //Grava dados no SD CARD para gerar  gráfico de PH do aquário.
@@ -46,7 +46,7 @@ void logphagraf() //Grava dados no SD CARD para gerar  gráfico de PH do aquári
   oldminuto2 = time2;
   time2 = t.min;
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto2!=time2)
   {
@@ -71,7 +71,7 @@ void logphagraf() //Grava dados no SD CARD para gerar  gráfico de PH do aquári
     file.open(&root, "LOGPDIA.TXT", O_WRITE);
     file.remove();
   } 
-  digitalWrite (4, HIGH); 
+  //digitalWrite (4, HIGH); 
 }
 
 void logphrgraf() //Grava dados no SD CARD para gerar  gráfico de PH do reator de calcio.
@@ -80,7 +80,7 @@ void logphrgraf() //Grava dados no SD CARD para gerar  gráfico de PH do reator 
   oldminuto3 = time3;
   time3 = t.min;
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto3!=time3)
   {
@@ -105,7 +105,7 @@ void logphrgraf() //Grava dados no SD CARD para gerar  gráfico de PH do reator 
     file.open(&root, "LOGRDIA.TXT", O_WRITE);
     file.remove();
   }
-  digitalWrite (4, HIGH);
+  //digitalWrite (4, HIGH);
 }
 
 void logorpgraf() //Grava dados no SD CARD para gerar  grafico de ORP.
@@ -114,7 +114,7 @@ void logorpgraf() //Grava dados no SD CARD para gerar  grafico de ORP.
   oldminuto4 = time4;
   time4 = t.min;
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto4!=time4)
   {
@@ -140,7 +140,7 @@ void logorpgraf() //Grava dados no SD CARD para gerar  grafico de ORP.
     file.open(&root, "LOGODIA.TXT", O_WRITE);
     file.remove();
   } 
-  digitalWrite (4, HIGH); 
+  //digitalWrite (4, HIGH); 
 }
 
 void logdengraf() //Grava dados no SD CARD para gerar  grafico de PH do aquario.
@@ -149,7 +149,7 @@ void logdengraf() //Grava dados no SD CARD para gerar  grafico de PH do aquario.
   oldminuto5 = time5;
   time5  = t.min;
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto5!=time5)
   {
@@ -174,13 +174,13 @@ void logdengraf() //Grava dados no SD CARD para gerar  grafico de PH do aquario.
     file.open(&root, "LOGDDIA.TXT", O_WRITE);
     file.remove();
   }
-  digitalWrite (4, HIGH);   
+  //digitalWrite (4, HIGH);   
 }
 
 
 void logparametros() //Grava parametros no SD CARD para consultas posteriores
 {
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   file.open(&root, "LOGPAR.TXT", O_CREAT | O_APPEND | O_WRITE);
   file.print(rtc.getDateStr(FORMAT_SHORT)); 
@@ -199,5 +199,5 @@ void logparametros() //Grava parametros no SD CARD para consultas posteriores
   writeCRLF(file);
   file.close();
 
-  digitalWrite (4, HIGH);
+  //digitalWrite (4, HIGH);
 }

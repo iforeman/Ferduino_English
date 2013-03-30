@@ -121,7 +121,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200); // tabela_textos[163]
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));            
+            myGLCD.print(buffer, 10, 200); // tabela_textos[163]
+            
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }      
@@ -144,7 +147,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+            
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -169,7 +175,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+            
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }      
@@ -195,7 +204,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+            
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -218,7 +230,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+     
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+   
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -241,7 +256,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));            
+            myGLCD.print(buffer, 10, 200);
+            
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -269,7 +287,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+            
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -298,7 +319,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+            
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -317,7 +341,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+            
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -345,7 +372,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+          
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -373,7 +403,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }
@@ -391,7 +424,10 @@ void processMyTouch()
             ct=true;
             myGLCD.setColor(255, 0, 0);
             myGLCD.setFont(SmallFont);
-            myGLCD.print(tabela_textos[163], 10, 200);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[163])));
+            myGLCD.print(buffer, 10, 200);
+
             myGLCD.setColor(255, 255, 255);
             myGLCD.setFont(BigFont);
           }          
@@ -869,7 +905,9 @@ void processMyTouch()
         clearScreen();
         selecionar_dosadora();
         setFont(SMALL, 255, 255, 255, 0, 0, 0);
-        myGLCD.print(tabela_textos[164], 15, 220); // "MODO MANUAL SELECIONADO"
+        
+        strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[164])));
+        myGLCD.print(buffer, 15, 220); // "MODO MANUAL SELECIONADO"
       }
       if ((x>=autO[0]) && x<=autO[2] && (y>=autO[1]) && (y<=autO[3]))
       {
@@ -882,7 +920,9 @@ void processMyTouch()
         clearScreen();
         selecionar_dosadora();
         setFont(SMALL, 255, 255, 255, 0, 0, 0);
-        myGLCD.print(tabela_textos[165], 15, 220);      
+        
+        strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[165])));
+        myGLCD.print(buffer, 15, 220);      
       } 
       if ((x>=perS[0]) && x<=perS[2] && (y>=perS[1]) && (y<=perS[3]))
       {
@@ -895,7 +935,9 @@ void processMyTouch()
         clearScreen();
         selecionar_dosadora();
         setFont(SMALL, 255, 255, 255, 0, 0, 0);
-        myGLCD.print(tabela_textos[171], 15, 220);      
+        
+        strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[171])));
+        myGLCD.print(buffer, 15, 220);      
       }
       if ((x>=caliB[0]) && x<=caliB[2] && (y>=caliB[1]) && (y<=caliB[3]))
       {
@@ -908,7 +950,9 @@ void processMyTouch()
         clearScreen();
         selecionar_dosadora();
         setFont(SMALL, 255, 255, 255, 0, 0, 0);
-        myGLCD.print(tabela_textos[172], 15, 220);      
+        
+        strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[172])));
+        myGLCD.print(buffer, 15, 220);      
       }    
       if ((x>=menU[0]) && x<=menU[2] && (y>=menU[1]) && (y<=menU[3]))           /// volta ao menu
       {
@@ -1695,7 +1739,10 @@ void processMyTouch()
           clearScreen();
           selecionar_dosadora();
           setFont(SMALL, 255, 255, 255, 0, 0, 0);
-          myGLCD.print(tabela_textos[172], 15, 220);
+          
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[172])));
+          myGLCD.print(buffer, 15, 220);
+          
           modo_manual = false;
           modo_automatico = false;
           modo_personalizado = false;
@@ -1712,7 +1759,10 @@ void processMyTouch()
           clearScreen();
           selecionar_dosadora();
           setFont(SMALL, 255, 255, 255, 0, 0, 0);
-          myGLCD.print(tabela_textos[172], 15, 220);
+          
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[172])));
+          myGLCD.print(buffer, 15, 220);
+          
           modo_manual = false;
           modo_automatico = false;
           modo_personalizado = false;
@@ -1729,7 +1779,10 @@ void processMyTouch()
           clearScreen();
           selecionar_dosadora();
           setFont(SMALL, 255, 255, 255, 0, 0, 0);
-          myGLCD.print(tabela_textos[172], 15, 220);
+          
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[172])));
+          myGLCD.print(buffer, 15, 220);
+          
           modo_manual = false;
           modo_automatico = false;
           modo_personalizado = false;
@@ -1746,7 +1799,10 @@ void processMyTouch()
         clearScreen();
         selecionar_dosadora();
         setFont(SMALL, 255, 255, 255, 0, 0, 0);
-        myGLCD.print(tabela_textos[172], 15, 220);
+        
+        strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[172])));
+        myGLCD.print(buffer, 15, 220);
+
         modo_manual = false;
         modo_automatico = false;
         modo_personalizado = false;
@@ -1760,30 +1816,40 @@ void processMyTouch()
         waitForIt(iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
         if((modo_calibrar == true) && (dosadora_1_selecionada == true))
         {
-          printButton_verde(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+          printButton_verde(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+
           delay(10000);
           digitalWrite(dosadora1, HIGH);
           delay(60000);
           digitalWrite(dosadora1, LOW);
-          printButton(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+          
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+          printButton(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
         }
         if((modo_calibrar == true) && (dosadora_2_selecionada == true))
         {
-          printButton_verde(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+          printButton_verde(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
           delay(10000);
           digitalWrite(dosadora2, HIGH);
           delay(60000);
           digitalWrite(dosadora2, LOW);
-          printButton(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+          
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+          printButton(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
         }
         if((modo_calibrar == true) && (dosadora_3_selecionada == true))
         {
-          printButton_verde(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+          printButton_verde(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
           delay(10000);
           digitalWrite(dosadora3, HIGH);
           delay(60000);
           digitalWrite(dosadora3, LOW);
-          printButton(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+          
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+          printButton(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
         }
       }      
       break;
@@ -1856,7 +1922,10 @@ void processMyTouch()
         clearScreen();
         selecionar_dosadora();
         setFont(SMALL, 255, 255, 255, 0, 0, 0);
-        myGLCD.print(tabela_textos[164], 15, 220);
+        
+        strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[164])));
+        myGLCD.print(buffer, 15, 220);
+
         modo_manual = true;
         modo_automatico = false;
         modo_personalizado = false;
@@ -1872,42 +1941,54 @@ void processMyTouch()
         {
           if(fator_calib_dosadora_1 > 10)
           {
-            printButton_verde(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);  
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+            printButton_verde(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+            
             tempo_dosagem_1 = map ((dose_dosadora_1_manual*2), 0, fator_calib_dosadora_1, 0, 60000);
             tempo_dosagem_1 /= 2;                 
             delay(10000);
             digitalWrite(dosadora1, HIGH);
             delay(tempo_dosagem_1);
             digitalWrite(dosadora1, LOW);
-            printButton(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+            
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+            printButton(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
           }
         }
         if((modo_manual == true) && (dosadora_2_selecionada == true))
         {
           if(fator_calib_dosadora_2 > 10)
           {
-            printButton_verde(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+            printButton_verde(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+
             tempo_dosagem_1 = map ((dose_dosadora_2_manual*2), 0, fator_calib_dosadora_2, 0, 60000);
             tempo_dosagem_1 /= 2;
             delay(10000);
             digitalWrite(dosadora2, HIGH);
             delay(tempo_dosagem_1);
             digitalWrite(dosadora2, LOW);
-            printButton(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+            printButton(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
           }
         }
         if((modo_manual == true) && (dosadora_3_selecionada == true))
         {
           if(fator_calib_dosadora_3 > 10)
           {
-            printButton_verde(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));
+            printButton_verde(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+            
             tempo_dosagem_1 = map ((dose_dosadora_3_manual*2), 0, fator_calib_dosadora_3, 0, 60000);
             tempo_dosagem_1 /= 2;
             delay(10000);
             digitalWrite(dosadora3, HIGH);
             delay(tempo_dosagem_1);
             digitalWrite(dosadora3, LOW);
-            printButton(tabela_textos[17], iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
+          
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[17])));            
+            printButton(buffer, iniciaR[0], iniciaR[1], iniciaR[2], iniciaR[3]);
           }
         }
       }      
@@ -1921,7 +2002,10 @@ void processMyTouch()
         clearScreen();
         selecionar_dosadora();
         setFont(SMALL, 255, 255, 255, 0, 0, 0);
-        myGLCD.print(tabela_textos[165], 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
+        strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[165])));
+        myGLCD.print(buffer, 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
         modo_manual = false;
         modo_automatico = true;
         modo_personalizado = false;
@@ -2065,15 +2149,23 @@ void processMyTouch()
           if((hora_final_dosagem_automatica_1_temp2 == hora_inicial_dosagem_automatica_1) && (minuto_final_dosagem_automatica_1_temp2 < (minuto_inicial_dosagem_automatica_1+10)))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[166], 225, 198); // tabela_textos[166]
-            myGLCD.print(tabela_textos[167], 225, 218);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[166])));
+            myGLCD.print(buffer, 225, 198); // tabela_textos[166]
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[167])));
+            myGLCD.print(buffer, 225, 218);
 
           }
           if(hora_final_dosagem_automatica_1_temp2 < hora_inicial_dosagem_automatica_1)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[168], 225, 198);
-            myGLCD.print(tabela_textos[169], 225, 218);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[168])));
+            myGLCD.print(buffer, 225, 198);
+  
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169])));
+            myGLCD.print(buffer, 225, 218);
           }
           if((hora_final_dosagem_automatica_1_temp2 == hora_inicial_dosagem_automatica_1) && (minuto_final_dosagem_automatica_1_temp2 >= (minuto_inicial_dosagem_automatica_1+10)))
           {
@@ -2081,7 +2173,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[165], 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[165])));
+            myGLCD.print(buffer, 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = true;
             modo_personalizado = false;
@@ -2089,7 +2184,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDA1.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDA1.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -2138,7 +2233,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM(); 
           }    
 
@@ -2148,7 +2243,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[165], 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[165])));
+            myGLCD.print(buffer, 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = true;
             modo_personalizado = false;
@@ -2156,7 +2254,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDA1.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDA1.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -2205,7 +2303,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM();
           }         
         }
@@ -2345,15 +2443,24 @@ void processMyTouch()
           if((hora_final_dosagem_automatica_2_temp2 == hora_inicial_dosagem_automatica_2) && (minuto_final_dosagem_automatica_2_temp2 < (minuto_inicial_dosagem_automatica_2+10)))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[166], 225, 198);
-            myGLCD.print(tabela_textos[167], 225, 218);
+
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[166])));
+            myGLCD.print(buffer, 225, 198);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[167])));
+            myGLCD.print(buffer, 225, 218);
 
           }
           if(hora_final_dosagem_automatica_2_temp2 < hora_inicial_dosagem_automatica_2)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[168], 225, 198);
-            myGLCD.print(tabela_textos[169], 225, 218);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[168])));
+            myGLCD.print(buffer, 225, 198);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169])));
+            myGLCD.print(buffer, 225, 218);
           }
           if((hora_final_dosagem_automatica_2_temp2 == hora_inicial_dosagem_automatica_2) && (minuto_final_dosagem_automatica_2_temp2 >= (minuto_inicial_dosagem_automatica_2+10)))
           {
@@ -2361,7 +2468,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[165], 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[165])));
+            myGLCD.print(buffer, 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = true;
             modo_personalizado = false;
@@ -2369,7 +2479,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDA2.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDA2.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -2418,7 +2528,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM(); 
           }    
 
@@ -2428,7 +2538,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[165], 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[165])));
+            myGLCD.print(buffer, 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = true;
             modo_personalizado = false;
@@ -2436,7 +2549,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDA2.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDA2.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -2485,7 +2598,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM();
           }         
         }
@@ -2625,15 +2738,23 @@ void processMyTouch()
           if((hora_final_dosagem_automatica_3_temp2 == hora_inicial_dosagem_automatica_3) && (minuto_final_dosagem_automatica_3_temp2 < (minuto_inicial_dosagem_automatica_3+10)))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[166], 225, 198);
-            myGLCD.print(tabela_textos[167], 225, 218);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[166])));
+            myGLCD.print(buffer, 225, 198);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[167])));
+            myGLCD.print(buffer, 225, 218);
 
           }
           if(hora_final_dosagem_automatica_3_temp2 < hora_inicial_dosagem_automatica_3)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[168], 225, 198);
-            myGLCD.print(tabela_textos[169], 225, 218);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[168])));
+            myGLCD.print(buffer, 225, 198);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169])));
+            myGLCD.print(buffer, 225, 218);
           }
           if((hora_final_dosagem_automatica_3_temp2 == hora_inicial_dosagem_automatica_3) && (minuto_final_dosagem_automatica_3_temp2 >= (minuto_inicial_dosagem_automatica_3+10)))
           {
@@ -2641,7 +2762,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[165], 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[165])));
+            myGLCD.print(buffer, 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = true;
             modo_personalizado = false;
@@ -2649,7 +2773,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDA3.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDA3.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -2698,7 +2822,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM(); 
           }    
 
@@ -2708,7 +2832,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[165], 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[165])));
+            myGLCD.print(buffer, 15, 220); // tabela_textos[165] = "MODO AUTOMATICO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = true;
             modo_personalizado = false;
@@ -2716,7 +2843,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDA3.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDA3.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -2765,7 +2892,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM();
           }         
         }
@@ -2787,7 +2914,10 @@ void processMyTouch()
         clearScreen();
         selecionar_dosadora();
         setFont(SMALL, 255, 255, 255, 0, 0, 0);
-        myGLCD.print(tabela_textos[171], 15, 220);
+
+        strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[171])));
+        myGLCD.print(buffer, 15, 220);
+
         modo_manual = false;
         modo_automatico = false;
         modo_personalizado = true;
@@ -3254,7 +3384,10 @@ void processMyTouch()
           myGLCD.setFont(BigFont);
           myGLCD.setColor(0, 255, 0);
           myGLCD.setBackColor(0, 0, 0);
-          myGLCD.print(tabela_textos[173], 51, 192); // tabela_textos[173] = "SENHA CORRETA"
+
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[173])));
+          myGLCD.print(buffer, 51, 192); // tabela_textos[173] = "SENHA CORRETA"
+
           delay(500);
           dispScreen=1;
           clearScreen();
@@ -3267,19 +3400,28 @@ void processMyTouch()
           myGLCD.setFont(BigFont);
           myGLCD.setColor(255, 0, 0);
           myGLCD.setBackColor(0, 0, 0);
-          myGLCD.print(tabela_textos[174], 35, 192); // tabela_textos[173] = "SENHA INCORRETA!"
+
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[174])));
+          myGLCD.print(buffer, 35, 192); // tabela_textos[173] = "SENHA INCORRETA!"
+
           delay(500);
           myGLCD.setColor(0, 0, 0);
           myGLCD.fillRect (35, 192, 300, 207);
           delay(500);            
           myGLCD.setColor(255, 0, 0);
-          myGLCD.print(tabela_textos[174], 35, 192);
+
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[174])));
+          myGLCD.print(buffer, 35, 192); // tabela_textos[173] = "SENHA INCORRETA!"
+
           delay(500);
           myGLCD.setColor(0, 0, 0);
           myGLCD.fillRect (35, 192, 300, 207);
           delay(500);
           myGLCD.setColor(255, 0, 0);
-          myGLCD.print(tabela_textos[174], 35, 192);
+
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[174])));
+          myGLCD.print(buffer, 35, 192); // tabela_textos[173] = "SENHA INCORRETA!"
+          
           delay(500);
           myGLCD.setColor(0, 0, 0);
           myGLCD.fillRect (35, 192, 300, 207);
@@ -3292,25 +3434,37 @@ void processMyTouch()
           myGLCD.setFont(BigFont);
           myGLCD.setColor(255, 0, 0);
           myGLCD.setBackColor(0, 0, 0);
-          myGLCD.print(tabela_textos[174], 35, 192);
+
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[174]))); 
+          myGLCD.print(buffer, 35, 192);
+
           delay(500);
           myGLCD.setColor(0, 0, 0);
           myGLCD.fillRect (35, 192, 300, 207);
           delay(500);
           myGLCD.setColor(255, 0, 0);          
-          myGLCD.print(tabela_textos[175], 35, 192); // "MAXIMO 6 DIGITOS!"
+
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[175])));
+          myGLCD.print(buffer, 35, 192); // "MAXIMO 6 DIGITOS!"
+
           delay(1000);
           myGLCD.setColor(0, 0, 0);
           myGLCD.fillRect (35, 192, 300, 207);
           delay(500);
           myGLCD.setColor(255, 0, 0);
-          myGLCD.print(tabela_textos[174], 35, 192);
+
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[175])));
+          myGLCD.print(buffer, 35, 192); // "MAXIMO 6 DIGITOS!"
+          
           delay(500);
           myGLCD.setColor(0, 0, 0);
           myGLCD.fillRect (35, 192, 300, 207);
           delay(500);
           myGLCD.setColor(255, 0, 0);          
-          myGLCD.print(tabela_textos[175], 35, 192);
+
+          strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[175])));
+          myGLCD.print(buffer, 35, 192); // "MAXIMO 6 DIGITOS!"
+          
           delay(1000);
           myGLCD.setColor(0, 0, 0);
           myGLCD.fillRect (35, 192, 300, 207);
@@ -3427,15 +3581,23 @@ void processMyTouch()
           if((hora_final_dosagem_personalizada_1 == hora_inicial_dosagem_personalizada_1) && (minuto_final_dosagem_personalizada_1 < (minuto_inicial_dosagem_personalizada_1+10)))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[176], 20, 110); // "O INTERVALO ENTRE A INICIAL E A FINAL"
-            myGLCD.print(tabela_textos[177], 35, 130);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[176])));            
+            myGLCD.print(buffer, 20, 110); // "O INTERVALO ENTRE A INICIAL E A FINAL"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[177]))); 
+            myGLCD.print(buffer, 35, 130);
 
           }
           if(hora_final_dosagem_personalizada_1 < hora_inicial_dosagem_personalizada_1)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[178], 50, 110);
-            myGLCD.print(tabela_textos[179], 100, 130);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[178]))); 
+            myGLCD.print(buffer, 50, 110);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[179]))); 
+            myGLCD.print(buffer, 100, 130);
           }
 
           if((temp2hora_final_dosagem_personalizada_1 == hora_inicial_dosagem_personalizada_1) && (temp2minuto_final_dosagem_personalizada_1 >= (minuto_inicial_dosagem_personalizada_1+10)))
@@ -3444,7 +3606,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[171], 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[171]))); 
+            myGLCD.print(buffer, 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = false;
             modo_personalizado = true;
@@ -3452,7 +3617,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDP1.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDP1.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -3504,7 +3669,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM(); 
           }    
 
@@ -3514,7 +3679,11 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[171], 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[171]))); 
+            myGLCD.print(buffer, 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
+
             modo_manual = false;
             modo_automatico = false;
             modo_personalizado = true;
@@ -3522,7 +3691,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDP1.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDP1.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -3580,7 +3749,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM();
           }         
         } 
@@ -3676,14 +3845,22 @@ void processMyTouch()
           if((hora_final_dosagem_personalizada_2 == hora_inicial_dosagem_personalizada_2) && (minuto_final_dosagem_personalizada_2 < (minuto_inicial_dosagem_personalizada_2+10)))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[176], 20, 110);
-            myGLCD.print(tabela_textos[177], 35, 130);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[176]))); 
+            myGLCD.print(buffer, 20, 110);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[177]))); 
+            myGLCD.print(buffer, 35, 130);
           }
           if(hora_final_dosagem_personalizada_2 < hora_inicial_dosagem_personalizada_2)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[178], 50, 110); // "A HORA FINAL NAO PODE SER MENOR"
-            myGLCD.print(tabela_textos[179], 100, 130); // tabela_textos[179] = "QUE A INICIAL!"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[178]))); 
+            myGLCD.print(buffer, 50, 110); // "A HORA FINAL NAO PODE SER MENOR"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[179]))); 
+            myGLCD.print(buffer, 100, 130); // tabela_textos[179] = "QUE A INICIAL!"
           }
 
           if((temp2hora_final_dosagem_personalizada_2 == hora_inicial_dosagem_personalizada_2) && (temp2minuto_final_dosagem_personalizada_2 >= (minuto_inicial_dosagem_personalizada_2+10)))
@@ -3692,7 +3869,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[171], 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[171]))); 
+            myGLCD.print(buffer, 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = false;
             modo_personalizado = true;
@@ -3700,7 +3880,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDP2.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDP2.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -3749,7 +3929,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM(); 
           }    
 
@@ -3759,7 +3939,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[171], 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[171]))); 
+            myGLCD.print(buffer, 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = false;
             modo_personalizado = true;
@@ -3767,7 +3950,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDP2.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDP2.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -3816,7 +3999,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM();
           }         
         }      
@@ -3911,14 +4094,22 @@ void processMyTouch()
           if((hora_final_dosagem_personalizada_3 == hora_inicial_dosagem_personalizada_3) && (minuto_final_dosagem_personalizada_3 < (minuto_inicial_dosagem_personalizada_3+10)))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[176], 20, 110);
-            myGLCD.print(tabela_textos[177], 35, 130); // tabela_textos[177] = "DEVE SER DE NO MINIMO 10 MINUTOS!"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[176]))); 
+            myGLCD.print(buffer, 20, 110);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[177]))); 
+            myGLCD.print(buffer, 35, 130); // tabela_textos[177] = "DEVE SER DE NO MINIMO 10 MINUTOS!"
           }
           if(hora_final_dosagem_personalizada_3 < hora_inicial_dosagem_personalizada_3)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[178], 50, 110); // tabela_textos[178] = "A HORA FINAL NAO PODE SER MENOR"
-            myGLCD.print(tabela_textos[179], 100, 130); // tabela_textos[179] = "QUE A INICIAL!" 
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[178]))); 
+            myGLCD.print(buffer, 50, 110); // tabela_textos[178] = "A HORA FINAL NAO PODE SER MENOR"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[179]))); 
+            myGLCD.print(buffer, 100, 130); // tabela_textos[179] = "QUE A INICIAL!" 
           }
 
           if((temp2hora_final_dosagem_personalizada_3 == hora_inicial_dosagem_personalizada_3) && (temp2minuto_final_dosagem_personalizada_3 >= (minuto_inicial_dosagem_personalizada_3+10)))
@@ -3927,7 +4118,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[171], 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[171]))); 
+            myGLCD.print(buffer, 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = false;
             modo_personalizado = true;
@@ -3935,7 +4129,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDP3.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDP3.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -3983,7 +4177,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM(); 
           }    
 
@@ -3993,7 +4187,10 @@ void processMyTouch()
             clearScreen();
             selecionar_dosadora();
             setFont(SMALL, 255, 255, 255, 0, 0, 0);
-            myGLCD.print(tabela_textos[171], 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[171]))); 
+            myGLCD.print(buffer, 15, 220); // tabela_textos[171] = "MODO PERSONALIZADO SELECIONADO"
+
             modo_manual = false;
             modo_automatico = false;
             modo_personalizado = true;
@@ -4001,7 +4198,7 @@ void processMyTouch()
             dosadora_1_selecionada = false;
             dosadora_2_selecionada = false;
             dosadora_3_selecionada = false; 
-            digitalWrite (4, LOW); 
+            //digitalWrite (4, LOW); 
             file.open(&root, "HDP3.TXT", O_WRITE);
             file.remove();       
             file.open(&root, "HDP3.TXT", O_CREAT | O_APPEND | O_WRITE);
@@ -4050,7 +4247,7 @@ void processMyTouch()
             }
             file.close();  
             contador = 0;
-            digitalWrite (4, HIGH);
+            //digitalWrite (4, HIGH);
             Salvar_dosadora_EEPROM();
           }         
         }
@@ -4382,15 +4579,23 @@ void processMyTouch()
           if((on1_hora_temp2 == off1_hora_temp2) && (on1_minuto_temp2 >= off1_minuto_temp2))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if(off1_hora_temp2 < on1_hora_temp2)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if((on1_hora_temp2 == off1_hora_temp2) && (off1_minuto_temp2 > on1_minuto_temp2))
@@ -4523,15 +4728,23 @@ void processMyTouch()
           if((on2_hora_temp2 == off2_hora_temp2) && (on2_minuto_temp2 >= off2_minuto_temp2))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if(off2_hora_temp2 < on2_hora_temp2)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if((on2_hora_temp2 == off2_hora_temp2) && (off2_minuto_temp2 > on2_minuto_temp2))
@@ -4665,15 +4878,23 @@ void processMyTouch()
           if((on3_hora_temp2 == off3_hora_temp2) && (on3_minuto_temp2 >= off3_minuto_temp2))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if(off3_hora_temp2 < on3_hora_temp2)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if((on3_hora_temp2 == off3_hora_temp2) && (off3_minuto_temp2 > on3_minuto_temp2))
@@ -4807,15 +5028,23 @@ void processMyTouch()
           if((on4_hora_temp2 == off4_hora_temp2) && (on4_minuto_temp2 >= off4_minuto_temp2))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if(off4_hora_temp2 < on4_hora_temp2)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if((on4_hora_temp2 == off4_hora_temp2) && (off4_minuto_temp2 > on4_minuto_temp2))
@@ -4948,15 +5177,23 @@ void processMyTouch()
           if((on5_hora_temp2 == off5_hora_temp2) && (on5_minuto_temp2 >= off5_minuto_temp2))
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if(off5_hora_temp2 < on5_hora_temp2)
           {
             setFont(SMALL, 255, 0, 0, 0, 0, 0);
-            myGLCD.print(tabela_textos[170], 20, 205);
-            myGLCD.print(tabela_textos[169], 20, 222);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[170]))); 
+            myGLCD.print(buffer, 20, 205);
+
+            strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[169]))); 
+            myGLCD.print(buffer, 20, 222);
           }
 
           if((on5_hora_temp2 == off5_hora_temp2) && (off5_minuto_temp2 > on5_minuto_temp2))

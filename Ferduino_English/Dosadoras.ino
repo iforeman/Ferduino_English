@@ -16,7 +16,7 @@ void check_dosagem_automatica_1()
   time6 = t.min;
   
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto6!=time6)
   {  
@@ -43,7 +43,7 @@ void check_dosagem_automatica_1()
       file.close();
     }
   }
-  digitalWrite (4, HIGH);
+  //digitalWrite (4, HIGH);
 }
 
 void check_dosagem_automatica_2()
@@ -56,7 +56,7 @@ void check_dosagem_automatica_2()
   time7 = t.min;
   
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto7!=time7)
   {  
@@ -83,7 +83,7 @@ void check_dosagem_automatica_2()
       file.close();
     }
   }
-  digitalWrite (4, HIGH);
+  //digitalWrite (4, HIGH);
 }
 
 void check_dosagem_automatica_3()
@@ -96,7 +96,7 @@ void check_dosagem_automatica_3()
   time8 = t.min;
   
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto8 != time8)
   {  
@@ -123,7 +123,7 @@ void check_dosagem_automatica_3()
       file.close();
     }
   }
-  digitalWrite (4, HIGH);
+  //digitalWrite (4, HIGH);
 }
 
 void check_dosagem_personalizada_1()
@@ -136,7 +136,7 @@ void check_dosagem_personalizada_1()
   time9 = t.min;
   
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto9!=time9)
   {  
@@ -300,7 +300,7 @@ void check_dosagem_personalizada_1()
       }
     }
   }
-  digitalWrite (4, HIGH);
+  //digitalWrite (4, HIGH);
 }
 
 void check_dosagem_personalizada_2()
@@ -313,7 +313,7 @@ void check_dosagem_personalizada_2()
   time10 = t.min;
   
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto10!=time10)
   {  
@@ -476,7 +476,7 @@ void check_dosagem_personalizada_2()
       }
     }
   }
-  digitalWrite (4, HIGH);
+  //digitalWrite (4, HIGH);
 }
 
 void check_dosagem_personalizada_3()
@@ -489,7 +489,7 @@ void check_dosagem_personalizada_3()
   time11 = t.min;
   
 
-  digitalWrite (4, LOW);
+  //digitalWrite (4, LOW);
 
   if (oldminuto11!=time11)
   {  
@@ -651,7 +651,7 @@ void check_dosagem_personalizada_3()
       }
     }
   }
-  digitalWrite (4, HIGH);
+  //digitalWrite (4, HIGH);
 }
 
 

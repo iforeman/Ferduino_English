@@ -1,0 +1,39 @@
+#include <Wire.h>
+
+static byte tabela1[] = {1,2,4,8,16,32,64,128};
+static byte tabela2[] = {128,64,32,16,8,4,2,1};
+
+void set(byte b0,byte b1) 
+{
+  Wire.beginTransmission(32);
+  Wire.write(b0);
+  Wire.write(b1);
+  Wire.endTransmission();
+}
+
+void setup() 
+{
+  Wire.begin();
+  //Todos os pinos OFF
+  set(0,0);
+}
+
+void loop()
+{
+  for(int i = 0; i < 9; i++)
+ {
+  set(tabela1[i],tabela2[i]); // Apenas o pino 1 ON.
+  delay(100);
+ }
+  for(int i = 8; i > 0; i--)
+ {
+  set(tabela1[i],tabela2[i]); // Apenas o pino 1 ON.
+  delay(100);
+ }
+ set(255,255); // Todos os pinos ON
+ delay(200);
+}
+
+
+
+

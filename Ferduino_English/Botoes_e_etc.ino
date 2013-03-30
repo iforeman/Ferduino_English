@@ -96,8 +96,7 @@ const int boTE[]= {165, 120, 310, 160};        //Botao entrar
 //**********************************************************************************************
 void clearScreen()
 {
-  myGLCD.setColor(0, 0, 0);
-  myGLCD.fillRect(0, 0, 400, 240); 
+  myGLCD.clrScr();
 }
 
 void printButton(char* text, int x1, int y1, int x2, int y2, boolean setFont = false)

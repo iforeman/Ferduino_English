@@ -17,7 +17,7 @@ extern uint8_t BigFont[];
 extern uint8_t SevenSegNumFont[];
 
 // Uncomment the next line for Arduino 2009/Uno
-UTFT myGLCD(ITDB32S,19,18,17,16);   // Remember to change the model parameter to suit your display module!
+UTFT myGLCD(ITDB32WC,38,39,40,41);   // Remember to change the model parameter to suit your display module!
 
 // Uncomment the next line for Arduino Mega
 //UTFT myGLCD(ITDB32S,38,39,40,41);   // Remember to change the model parameter to suit your display module!
@@ -25,7 +25,7 @@ UTFT myGLCD(ITDB32S,19,18,17,16);   // Remember to change the model parameter to
 void setup()
 {
   myGLCD.InitLCD();
-
+  myGLCD.setScaleFactor(1.00, 1.00); // X, Y
   myGLCD.clrScr();
 }
 
