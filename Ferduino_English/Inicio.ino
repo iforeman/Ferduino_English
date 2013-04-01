@@ -87,9 +87,6 @@ void mainScreen(boolean refreshAll=false)
 
   if ( refreshAll == true)                                  //draw static elements
   {
-     myGLCD.setColor(64, 64, 64);
-     myGLCD.fillRect(0, 226, 400, 239);
-
     setFont(SMALL, 255, 255, 255, 0, 0, 0);
     
     strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[183])));
