@@ -15,13 +15,13 @@ void tempgScreen()//------------------------------------------------------------
   int f = 30;
  
   strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[25])));
-  printHeader(buffer); // tabela_textos[25] = "GRAFICO DE TEMPERATURA"
+  printHeader(buffer); // tabela_textos[25] = "GRAFICO DE TEMPERATURA DA AGUA"
 
   setFont(SMALL, 255, 255, 255, 0, 0, 0);
 
 for(float i = 27.5; i > 22.0; i -= 0.5)
 {
-  myGLCD.printNumF(i, 1, 5, f);
+  myGLCD.printNumF(i, 1, 5, 3 + f);
   f += 15; 
 }
 
@@ -31,34 +31,8 @@ for(int i = 22; i > 0; i -= 2)
   myGLCD.printNumI(i, f, 193);
   f -= 20;
 }
-  /* 
-  myGLCD.print("22,5", 5, 180);
-  myGLCD.print("23,0", 5, 165);
-  myGLCD.print("23,5", 5, 150);
-  myGLCD.print("24,0", 5, 135);
-  myGLCD.print("24,5", 5, 120);
-  myGLCD.print("25,0", 5, 105);
-  myGLCD.print("25,5", 5, 90);
-  myGLCD.print("26,0", 5, 75);
-  myGLCD.print("26,5", 5, 60);
-  myGLCD.print("27,0", 5, 45);
-  myGLCD.print("27,5", 5, 30); 
- 
-  myGLCD.print("2", 60, 193);
-  myGLCD.print("4", 80, 193);
-  myGLCD.print("6", 100, 193);
-  myGLCD.print("8", 120, 193);
-  myGLCD.print("10", 135, 193);
-  myGLCD.print("12", 155, 193);
-  myGLCD.print("14", 175, 193);
-  myGLCD.print("16", 195, 193);
-  myGLCD.print("18", 215, 193);
-  myGLCD.print("20", 235, 193);
-  myGLCD.print("22", 255, 193);
-  */
+
   myGLCD.print("0", 275, 193); 
-   
-  
   myGLCD.drawCircle(15, 21, 2);  
   myGLCD.print("C", 20, 18);
   myGLCD.print("H", 290, 193);
@@ -126,7 +100,13 @@ for(int i = 22; i > 0; i -= 2)
   strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[66])));
   printButton(buffer, volT[0], volT[1], volT[2], volT[3]);
 
-  digitalWrite (4, LOW);
+  setFont(SMALL, 255, 255, 0, 0, 0, 0);
+  
+  int d = 41 + (NumMins(t.hour,t.min)/6);
+  
+  myGLCD.drawLine(d, 30, d, 190); // Linha de marcação do horário.
+  myGLCD.print(rtc.getTimeStr(FORMAT_SHORT), d + 2, 75, 270);
+  
   file.open(&root, "LOGTDIA.TXT", O_READ);
   while ((n = file.read(buf, sizeof(buf))) > 0)
   {
@@ -165,11 +145,15 @@ for(int i = 22; i > 0; i -= 2)
         grafico = (190-((media-22.5)*30));
       }
       setFont(SMALL, 255, 0, 255, 0, 0, 0);
-      myGLCD.drawPixel((40+j),grafico);
+      
+      if(j < 250)
+      {
+      myGLCD.drawPixel((40+j), grafico);
+      }
     }
   }
   file.close();
-  digitalWrite (4, HIGH);
+ 
 }
 
 void orpScreen()//------------------------------------------------------------tela =12
@@ -198,7 +182,7 @@ void orpScreen()//------------------------------------------------------------te
   
   for(int i = 480; i > 160; i -= 30)
 {
-  myGLCD.printNumI(i, 5, f);
+  myGLCD.printNumI(i, 10, 3 + f);
   f += 15; 
 }
 
@@ -208,35 +192,8 @@ for(int i = 22; i > 0; i -= 2)
   myGLCD.printNumI(i, f, 193);
   f -= 20;
 }
-
-/*
-  myGLCD.print("180", 10, 180);
-  myGLCD.print("210", 10, 165);
-  myGLCD.print("240", 10, 150);
-  myGLCD.print("270", 10, 135);
-  myGLCD.print("300", 10, 120);
-  myGLCD.print("330", 10, 105);
-  myGLCD.print("360", 10, 90);
-  myGLCD.print("390", 10, 75);
-  myGLCD.print("420", 10, 60);
-  myGLCD.print("450", 10, 45);
-  myGLCD.print("480", 10, 30); 
-  
-  myGLCD.print("2", 55, 193);
-  myGLCD.print("4", 75, 193);
-  myGLCD.print("6", 95, 193);
-  myGLCD.print("8", 115, 193);
-  myGLCD.print("10", 135, 193);
-  myGLCD.print("12", 155, 193);
-  myGLCD.print("14", 175, 193);
-  myGLCD.print("16", 195, 193);
-  myGLCD.print("18", 215, 193);
-  myGLCD.print("20", 235, 193);
-  myGLCD.print("22", 255, 193);
-  */
-  
   myGLCD.print("0", 275, 193);    
-  myGLCD.print("MV", 20, 18);
+  myGLCD.print("MV", 18, 18);
   myGLCD.print("H", 290, 193);
   myGLCD.drawLine(40, 190, 290, 190);  //eixo x
   myGLCD.drawLine(40, 30, 40, 190); //eixo y
@@ -300,8 +257,14 @@ for(int i = 22; i > 0; i -= 2)
 
   strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[66])));
   printButton(buffer, volT[0], volT[1], volT[2], volT[3]);
+ 
+  setFont(SMALL, 255, 255, 0, 0, 0, 0);
+  
+  int d = 41 + (NumMins(t.hour,t.min)/6);
+  
+  myGLCD.drawLine(d, 30, d, 190); // Linha de marcação do horário.
+  myGLCD.print(rtc.getTimeStr(FORMAT_SHORT), d + 2, 75, 270);
 
-  digitalWrite (4, LOW);
   file.open(&root, "LOGODIA.TXT", O_READ);
   while ((n = file.read(buf, sizeof(buf))) > 0)
   {
@@ -341,11 +304,15 @@ for(int i = 22; i > 0; i -= 2)
         grafico = (190-((media - 180) * 0.5));
       }
       setFont(SMALL, 255, 0, 255, 0, 0, 0);
-      myGLCD.drawPixel((40+j),grafico);
+
+      if(j < 250)
+      {
+      myGLCD.drawPixel((40+j), grafico);
+      }
     }
   }
   file.close();
-  digitalWrite (4, HIGH);
+ 
 }
 
 void PHAScreen()//-------------------------------ph do aqua-----------------------------tela =13
@@ -374,7 +341,7 @@ void PHAScreen()//-------------------------------ph do aqua---------------------
 
   for(float i = 9; i > 6.9; i -= 0.2)
 {
-  myGLCD.printNumF(i, 1, 5, f);
+  myGLCD.printNumF(i, 1, 10, 3 + f);
   f += 15; 
 }
 
@@ -384,34 +351,8 @@ for(int i = 22; i > 0; i -= 2)
   myGLCD.printNumI(i, f, 193);
   f -= 20;
 }
-
-/*
-  myGLCD.print("7,0", 10, 180);
-  myGLCD.print("7,2", 10, 165);
-  myGLCD.print("7,4", 10, 150);
-  myGLCD.print("7,6", 10, 135);
-  myGLCD.print("7,8", 10, 120);
-  myGLCD.print("8,0", 10, 105);
-  myGLCD.print("8,2", 10, 90);
-  myGLCD.print("8,4", 10, 75);
-  myGLCD.print("8,6", 10, 60);
-  myGLCD.print("8,8", 10, 45);
-  myGLCD.print("9,0", 10, 30);  
-
-  myGLCD.print("2", 55, 193);
-  myGLCD.print("4", 75, 193);
-  myGLCD.print("6", 95, 193);
-  myGLCD.print("8", 115, 193);
-  myGLCD.print("10", 135, 193);
-  myGLCD.print("12", 155, 193);
-  myGLCD.print("14", 175, 193);
-  myGLCD.print("16", 195, 193);
-  myGLCD.print("18", 215, 193);
-  myGLCD.print("20", 235, 193);
-  myGLCD.print("22", 255, 193);
-  */
   myGLCD.print("0", 275, 193);   
-  myGLCD.print("PH", 20, 18);
+  myGLCD.print("PH", 17, 18);
   myGLCD.print("H", 290, 193);
 
   myGLCD.drawLine(40, 30, 40, 190); //eixo y
@@ -476,7 +417,13 @@ for(int i = 22; i > 0; i -= 2)
   strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[66])));
   printButton(buffer, volT[0], volT[1], volT[2], volT[3],false);
 
-  digitalWrite (4, LOW);
+  setFont(SMALL, 255, 255, 0, 0, 0, 0);
+  
+  int d = 41 + (NumMins(t.hour,t.min)/6);
+  
+  myGLCD.drawLine(d, 30, d, 190); // Linha de marcação do horário.
+  myGLCD.print(rtc.getTimeStr(FORMAT_SHORT), d + 2, 75, 270);
+  
   file.open(&root, "LOGPDIA.TXT", O_READ);
   while ((n = file.read(buf, sizeof(buf))) > 0)
   {
@@ -515,11 +462,15 @@ for(int i = 22; i > 0; i -= 2)
         grafico = (190-((media-7)* 75));
       }
       setFont(SMALL, 255, 0, 255, 0, 0, 0);
-      myGLCD.drawPixel((40+j),grafico);
+
+      if(j < 250)
+      {
+      myGLCD.drawPixel((40+j), grafico);
+      }
     }
   }
   file.close();
-  digitalWrite (4, HIGH);
+ 
 }
 
 void PHRScreen()//----------------PH do reator --------------------------------------------tela =17
@@ -549,7 +500,7 @@ void PHRScreen()//----------------PH do reator ---------------------------------
 
   for(float i = 7.4; i > 5.3; i -= 0.2)
 {
-  myGLCD.printNumF(i, 1, 5, f);
+  myGLCD.printNumF(i, 1, 10, 3 + f);
   f += 15; 
 }
 
@@ -559,33 +510,8 @@ for(int i = 22; i > 0; i -= 2)
   myGLCD.printNumI(i, f, 193);
   f -= 20;
 }
-/*
-  myGLCD.print("5,4", 10, 180);
-  myGLCD.print("5,6", 10, 165);
-  myGLCD.print("5,8", 10, 150);
-  myGLCD.print("6,0", 10, 135);
-  myGLCD.print("6,2", 10, 120);
-  myGLCD.print("6,4", 10, 105);
-  myGLCD.print("6,6", 10, 90);
-  myGLCD.print("6,8", 10, 75);
-  myGLCD.print("7,0", 10, 60);
-  myGLCD.print("7,2", 10, 45);
-  myGLCD.print("7,4", 10, 30);  
-
-  myGLCD.print("2", 55, 193);
-  myGLCD.print("4", 75, 193);
-  myGLCD.print("6", 95, 193);
-  myGLCD.print("8", 115, 193);
-  myGLCD.print("10", 135, 193);
-  myGLCD.print("12", 155, 193);
-  myGLCD.print("14", 175, 193);
-  myGLCD.print("16", 195, 193);
-  myGLCD.print("18", 215, 193);
-  myGLCD.print("20", 235, 193);
-  myGLCD.print("22", 255, 193);
-*/
   myGLCD.print("0", 275, 193);   
-  myGLCD.print("PH", 20, 18);
+  myGLCD.print("PH", 17, 18);
   myGLCD.print("H", 290, 193);
 
   myGLCD.drawLine(40, 30, 40, 190); //eixo y
@@ -651,7 +577,13 @@ for(int i = 22; i > 0; i -= 2)
   strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[66])));
   printButton(buffer, volT[0], volT[1], volT[2], volT[3],false);
 
-  digitalWrite (4, LOW);
+  setFont(SMALL, 255, 255, 0, 0, 0, 0);
+  
+  int d = 41 + (NumMins(t.hour,t.min)/6);
+  
+  myGLCD.drawLine(d, 30, d, 190); // Linha de marcação do horário.
+  myGLCD.print(rtc.getTimeStr(FORMAT_SHORT), d + 2, 75, 270);
+ 
   file.open(&root, "LOGRDIA.TXT", O_READ);
   while ((n = file.read(buf, sizeof(buf))) > 0)
   {
@@ -688,11 +620,15 @@ for(int i = 22; i > 0; i -= 2)
         grafico = (190-((media-5.4)* 75));
       }
       setFont(SMALL, 255, 0, 255, 0, 0, 0);
-      myGLCD.drawPixel((40+j),grafico);
+
+      if(j < 250)
+      {
+      myGLCD.drawPixel((40+j), grafico);
+      }
     }
   }
   file.close();
-  digitalWrite (4, HIGH);
+ 
 }
 
 void densidadeScreen()//----------------grafico de densidade --------------------------------------------tela =19
@@ -722,7 +658,7 @@ void densidadeScreen()//----------------grafico de densidade -------------------
 
   for(int i = 1030; i > 1008; i -= 2)
 {
-  myGLCD.printNumI(i, 10, f);
+  myGLCD.printNumI(i, 12, 3 + f);
   f += 15; 
 }
 
@@ -733,33 +669,8 @@ for(int i = 22; i > 0; i -= 2)
   f -= 20;
 }
 
-/*
-  myGLCD.print("1010", 10, 180);
-  myGLCD.print("1012", 10, 165);
-  myGLCD.print("1014", 10, 150);
-  myGLCD.print("1016", 10, 135);
-  myGLCD.print("1018", 10, 120);
-  myGLCD.print("1020", 10, 105);
-  myGLCD.print("1022", 10, 90);
-  myGLCD.print("1024", 10, 75);
-  myGLCD.print("1026", 10, 60);
-  myGLCD.print("1028", 10, 45);
-  myGLCD.print("1030", 10, 30);  
-
-  myGLCD.print("2", 55, 193);
-  myGLCD.print("4", 75, 193);
-  myGLCD.print("6", 95, 193);
-  myGLCD.print("8", 115, 193);
-  myGLCD.print("10", 135, 193);
-  myGLCD.print("12", 155, 193);
-  myGLCD.print("14", 175, 193);
-  myGLCD.print("16", 195, 193);
-  myGLCD.print("18", 215, 193);
-  myGLCD.print("20", 235, 193);
-  myGLCD.print("22", 255, 193);
-  */
   myGLCD.print("0", 285, 193);   
-  myGLCD.print("DENS.", 10, 18);
+  myGLCD.print("DENS.", 12, 18);
   myGLCD.print("H", 300, 193);
 
   myGLCD.drawLine(50, 30, 50, 190); //eixo y
@@ -826,7 +737,13 @@ for(int i = 22; i > 0; i -= 2)
   strcpy_P(buffer, (char*)pgm_read_word_near(&(tabela_textos[66])));
   printButton(buffer, volT[0], volT[1], volT[2], volT[3],false);
 
-  digitalWrite (4, LOW);
+  setFont(SMALL, 255, 255, 0, 0, 0, 0);
+  
+  int d = 51 + (NumMins(t.hour,t.min)/6);
+  
+  myGLCD.drawLine(d, 30, d, 190); // Linha de marcação do horário.
+  myGLCD.print(rtc.getTimeStr(FORMAT_SHORT), d + 2, 75, 270);
+ 
   file.open(&root, "LOGDDIA.TXT", O_READ);
   while ((n = file.read(buf, sizeof(buf))) > 0)
   {
@@ -863,9 +780,13 @@ for(int i = 22; i > 0; i -= 2)
         grafico = (190-((media-1010)*7.5));
       }
       setFont(SMALL, 255, 0, 255, 0, 0, 0);
-      myGLCD.drawPixel((50+j),grafico);
+
+      if(j < 250)
+      {
+      myGLCD.drawPixel((40+j), grafico);
+      }
     }
   }
   file.close();
-  digitalWrite (4, HIGH);
+ 
 }

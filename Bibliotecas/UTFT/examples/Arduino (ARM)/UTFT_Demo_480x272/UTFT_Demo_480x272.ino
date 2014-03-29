@@ -12,6 +12,9 @@
 
 #include <UTFT.h>
 
+// Declare which fonts we will be using
+extern uint8_t SmallFont[];
+
 UTFT myGLCD(ITDB43,38,39,40,41);   // Remember to change the model parameter to suit your display module!
 
 void setup()

@@ -4,16 +4,16 @@ void parametros()
   int i;
   do{
     Open_channel(ph1);
-    Serial2.print(tempC); //Para se obter um valor compensado pode-se enviar um valor de temperatura da água.
-    Serial2.print('\r');
+    Serial3.print(tempC); //Para se obter um valor compensado pode-se enviar um valor de temperatura da água.
+    Serial3.print('\r');
     delay(500);
 
-    if(Serial2.available() > 3) 
+    if(Serial3.available() > 3) 
     {
-      holding = Serial2.available();
+      holding = Serial3.available();
       for(i=1; i <= holding; i++)
       {
-        sensorstring[i]= Serial2.read();
+        sensorstring[i]= Serial3.read();
       }
 
       if(holding ==5)
@@ -27,7 +27,7 @@ void parametros()
         PHA = PHT/100;
       }  
       PHT=0;
-      Serial2.flush();
+      Serial3.flush();
       break;
     }
   } 
@@ -36,16 +36,16 @@ void parametros()
 
   do{
     Open_channel(ph2);
-    Serial2.print(tempC); //Para se obter um valor compensado pode-se enviar um valor de temperatura da água.
-    Serial2.print('\r');
+    Serial3.print(tempC); //Para se obter um valor compensado pode-se enviar um valor de temperatura da água.
+    Serial3.print('\r');
     delay(500);
 
-    if(Serial2.available() > 3) 
+    if(Serial3.available() > 3) 
     {
-      holding = Serial2.available();
+      holding = Serial3.available();
       for(i=1; i <= holding; i++)
       {
-        sensorstring[i]= Serial2.read();
+        sensorstring[i]= Serial3.read();
       }
       if(holding ==5)
       {
@@ -58,7 +58,7 @@ void parametros()
         PHR = PHT/100;
       }  
       PHT=0;
-      Serial2.flush();
+      Serial3.flush();
       break;
     }
 
@@ -68,22 +68,22 @@ void parametros()
 
   do{
     Open_channel(orp);
-    Serial2.print("r"),
-    Serial2.print('\r');
+    Serial3.print("r"),
+    Serial3.print('\r');
     delay(500);
 
-    if(Serial2.available() > 3) 
+    if(Serial3.available() > 3) 
     {
-      holding = Serial2.available();
+      holding = Serial3.available();
       for(i=1; i <= holding; i++)
       {
-        sensorstring[i]= Serial2.read();
+        sensorstring[i]= Serial3.read();
       }
 
       ORPT = ((sensorstring[1]-48)*100 + (sensorstring[2]-48)*10 + (sensorstring[3]-48));
       ORP = ORPT; 
       ORPT=0;
-      Serial2.flush();      
+      Serial3.flush();      
       break;
     }
   } 
@@ -92,20 +92,20 @@ void parametros()
 /*
   do{
     Open_channel(ec);
-    Serial2.print(tempC); //Para se obter um valor compensado pode-se enviar um valor de temperatura da água.
-    Serial2.print('\r');
+    Serial3.print(tempC); //Para se obter um valor compensado pode-se enviar um valor de temperatura da água.
+    Serial3.print('\r');
     delay(500);
-    if(Serial2.available() > 3) 
+    if(Serial3.available() > 3) 
     {
       Serial.print("Densidade:");
-      holding = Serial2.available();
+      holding = Serial3.available();
       for(i=1; i <= 15; i++)
       {
-        sensorstring[i]= Serial2.read();
+        sensorstring[i]= Serial3.read();
         Serial.print(sensorstring[i]);
       }
       Serial.println();
-      Serial2.flush();
+      Serial3.flush();
       break;
     }  
   } 
@@ -118,40 +118,41 @@ void iniciar_stamps()
 {
     Open_channel(ph1); 
   delay(50);
-  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
-  Serial2.print('\r');
+  Serial3.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
+  Serial3.print('\r');
   delay(1000);
-  Serial2.flush();
-  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
-  Serial2.print('\r');
+  Serial3.flush();
+  Serial3.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
+  Serial3.print('\r');
   delay(1000);
   Open_channel(ph2);
   delay(50);
-  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
-  Serial2.print('\r');
+  Serial3.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
+  Serial3.print('\r');
   delay(1000);
-  Serial2.flush();
-  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
-  Serial2.print('\r');
+  Serial3.flush();
+  Serial3.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
+  Serial3.print('\r');
   delay(1000);
   Open_channel(orp);
   delay(50);
-  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
-  Serial2.print('\r');
+  Serial3.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
+  Serial3.print('\r');
   delay(1000);
-  Serial2.flush();
-  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
-  Serial2.print('\r');
+  Serial3.flush();
+  Serial3.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
+  Serial3.print('\r');
   delay(1000);    
   Open_channel(ec);
   delay(50);
-  Serial2.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
-  Serial2.print('\r');
+  Serial3.print("e"); // Envia um comando para que o "stamp" pare de enviar as leituras.
+  Serial3.print('\r');
   delay(1000);
-  Serial2.flush();
-  Serial2.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
-  Serial2.print('\r');
+  Serial3.flush();
+  Serial3.print("L0"); // Envia um comando para que o "stamp" apague o led de depuração.
+  Serial3.print('\r');
   delay(1000);
+  parametros(); // Verifica os "stamps".
 }
 
 void Open_channel(short channel)
@@ -190,6 +191,6 @@ void Open_channel(short channel)
     digitalWrite(multiplexadorS1Pin, HIGH);
     break;
   }
-  Serial2.print('\r');
+  Serial3.print('\r');
   return;
 }

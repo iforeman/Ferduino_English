@@ -2,7 +2,9 @@
 //********************** Funcoes fase da lua* **************************************************
 //**********************************************************************************************
 float moonPhase(int moonYear, int moonMonth, int moonDay)
-{ 
+{
+  float LC = 29.53059;  // 1 ciclo lunar = 29.53059 dias.
+  double AG; 
   float phase;
   double IP; 
   long YY, MM, K1, K2, K3, JulianDay; 
@@ -67,41 +69,5 @@ double MyNormalize(double v)
   return v;
 }
 
-byte validateDate(byte d, byte m, word y)
-{
-  byte mArr[12] = {31,0,31,30,31,30,31,31,30,31,30,31};
-  byte od;
 
-  if (m==2)
-  {
-    if ((y % 4)==0)
-    {
-      if (d==30)
-        od=1;
-      else if (d==0)
-        od=29;
-      else
-        od=d;
-    }
-    else
-    {
-      if (d==29)
-        od=1;
-      else if (d==0)
-        od=28;
-      else
-        od=d;
-    }
-  }
-  else
-  {
-    if (d==0)
-      od=mArr[m-1];
-    else if (d==(mArr[m-1]+1))
-      od=1;
-    else
-      od=d;
-  }
 
-  return od;
-}
