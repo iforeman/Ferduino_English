@@ -2,94 +2,19 @@ void checktpa()
 {
   tempo = (duracaomaximatpa * 60000ul);
 
-  if ((segunda==t.dow) && (hora==t.hour) && (minuto==t.min) && (tpa == 0))
+  if ((segunda==t.dow) || (terca==t.dow) || (quarta==t.dow) || (quinta==t.dow) || (sexta==t.dow) || (sabado==t.dow) || (domingo==t.dow))
   {
-    tpa=1;
-    if ((4294967295ul - tempo) < millis())
+    if((hora==t.hour) && (minuto==t.min) && (tpa == 0))
     {
-      marcadoriniciotpa= millis() - (tempo*2);
-    }
-    else
-    {
-      marcadoriniciotpa= millis();
-    }
-  }
-
-  if ((terca==t.dow) && (hora==t.hour) && (minuto==t.min) && (tpa == 0))
-  {
-    tpa=1;
-    if ((4294967295ul - tempo) < millis())
-    {
-      marcadoriniciotpa= millis() - (tempo*2);
-    }
-    else
-    {
-      marcadoriniciotpa= millis();
-    }
-  }
-
-  if ((quarta==t.dow) && (hora==t.hour) && (minuto==t.min) && (tpa == 0))
-  {
-    tpa=1;
-    if ((4294967295ul - tempo) < millis())
-    {
-      marcadoriniciotpa= millis() - (tempo*2);
-    }
-    else
-    {
-      marcadoriniciotpa= millis();
-    }
-  }
-
-  if ((quinta==t.dow) && (hora==t.hour) && (minuto==t.min) && (tpa == 0))
-  {
-    tpa=1;
-    if ((4294967295ul - tempo) < millis())
-    {
-      marcadoriniciotpa= millis() - (tempo*2);
-    }
-    else
-    {
-      marcadoriniciotpa= millis();
-    }
-  }
-
-  if ((sexta==t.dow) && (hora==t.hour) && (minuto==t.min) && (tpa == 0))
-  {
-    tpa=1;
-    if ((4294967295ul - tempo) < millis())
-    {
-      marcadoriniciotpa= millis() - (tempo*2);
-    }
-    else
-    {
-      marcadoriniciotpa= millis();
-    }
-  }
-
-  if ((sabado==t.dow) && (hora==t.hour) && (minuto==t.min) && (tpa == 0))
-  {
-    tpa=1;
-    if ((4294967295ul - tempo) < millis())
-    {
-      marcadoriniciotpa= millis() - (tempo*2);
-    }
-    else
-    {
-      marcadoriniciotpa= millis();
-    }
-  }
-
-  if ((domingo==t.dow) && (hora==t.hour) && (minuto==t.min) && (tpa == 0))
-  {
-    tpa=1;
-    if ((4294967295ul - tempo) < millis())
-    {
-      marcadoriniciotpa= millis() - (tempo*2);
-    }
-    else
-    {
-      marcadoriniciotpa= millis();
+      tpa = 1;
+      if ((4294967295ul - tempo) < millis())
+      {
+        marcadoriniciotpa= millis() - (tempo*2);
+      }
+      else
+      {
+        marcadoriniciotpa= millis();
+      }
     }
   }
 

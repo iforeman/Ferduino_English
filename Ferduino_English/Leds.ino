@@ -54,71 +54,55 @@ void LED_levels_output()
     {  
       if(NumMins(led_off_hora,led_off_minuto) > NumMins(led_on_hora,led_on_minuto))
       {
-         if((NumMins(t.hour,t.min) >= (NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer)) && (NumMins(t.hour,t.min) <= (NumMins(led_off_hora,led_off_minuto + amanhecer_anoitecer))))
-         {
-         if(predefinido == 1) // Controla todos juntos
-         {
-         if((NumMins(t.hour,t.min) >= (NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer)) && (NumMins(t.hour,t.min) <= NumMins(led_on_hora,led_on_minuto)))
-         { 
-         bled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-         wled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-         rbled_out  = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-         rled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-         uvled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-         }
-         else if((NumMins(t.hour,t.min) >= NumMins(led_off_hora,led_off_minuto)) && (NumMins(t.hour,t.min) <= (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer)))
-         {
-         bled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), pwm_pre_definido, 0);
-         wled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), pwm_pre_definido, 0);
-         rbled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), pwm_pre_definido, 0);
-         rled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), pwm_pre_definido, 0);
-         uvled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), pwm_pre_definido, 0);
-         }
-         else
-         {
-         bled_out = pwm_pre_definido;
-         wled_out = pwm_pre_definido;
-         rbled_out = pwm_pre_definido;
-         rled_out = pwm_pre_definido;
-         uvled_out = pwm_pre_definido;  
-         }    
-         }
-         else // Controla individualmente
-         {
-         if((NumMins(t.hour,t.min) >= (NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer)) && (NumMins(t.hour,t.min) <= NumMins(led_on_hora,led_on_minuto)))
-         {
-         bled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, bled_out_temp);
-         wled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, wled_out_temp);
-         rbled_out  = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, rbled_out_temp);
-         rled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, rled_out_temp);
-         uvled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, uvled_out_temp);
-         }
-         else if((NumMins(t.hour,t.min) >= NumMins(led_off_hora,led_off_minuto)) && (NumMins(t.hour,t.min) <= (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer)))
-         {
-         bled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), bled_out_temp, 0);
-         wled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), wled_out_temp, 0);
-         rbled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), rbled_out_temp, 0);
-         rled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), rled_out_temp, 0);
-         uvled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), uvled_out_temp, 0);
-         }
-         else
-         {
-         bled_out = bled_out_temp;
-         wled_out = wled_out_temp;
-         rbled_out = rbled_out_temp;
-         rled_out = rled_out_temp;
-         uvled_out = uvled_out_temp;
-         }
-         }
-         }
-         else
-         {
-         bled_out = 0;
-         wled_out = 0;
-         rbled_out = 0;
-         rled_out = 0;
-         uvled_out = 0; 
-         }
+        if((NumMins(t.hour,t.min) >= (NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer)) && (NumMins(t.hour,t.min) <= (NumMins(led_off_hora,led_off_minuto + amanhecer_anoitecer))))
+        {
+          if(predefinido == 1) // Controla todos juntos
+          {
+            if((NumMins(t.hour,t.min) >= (NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer)) && (NumMins(t.hour,t.min) <= NumMins(led_on_hora,led_on_minuto)))
+            { 
+              bled_out = wled_out = rbled_out  = rled_out = uvled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
+            }
+            else if((NumMins(t.hour,t.min) >= NumMins(led_off_hora,led_off_minuto)) && (NumMins(t.hour,t.min) <= (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer)))
+            {
+              bled_out = wled_out = rbled_out  = rled_out = uvled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), pwm_pre_definido, 0);
+            }
+            else
+            {
+              bled_out = wled_out = rbled_out  = rled_out = uvled_out = pwm_pre_definido;
+            }    
+          }
+          else // Controla individualmente
+          {
+            if((NumMins(t.hour,t.min) >= (NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer)) && (NumMins(t.hour,t.min) <= NumMins(led_on_hora,led_on_minuto)))
+            {
+              bled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, bled_out_temp);
+              wled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, wled_out_temp);
+              rbled_out  = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, rbled_out_temp);
+              rled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, rled_out_temp);
+              uvled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, uvled_out_temp);
+            }
+            else if((NumMins(t.hour,t.min) >= NumMins(led_off_hora,led_off_minuto)) && (NumMins(t.hour,t.min) <= (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer)))
+            {
+              bled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), bled_out_temp, 0);
+              wled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), wled_out_temp, 0);
+              rbled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), rbled_out_temp, 0);
+              rled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), rled_out_temp, 0);
+              uvled_out = map(NumMins(t.hour,t.min), NumMins(led_off_hora,led_off_minuto), (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), uvled_out_temp, 0);
+            }
+            else
+            {
+              bled_out = bled_out_temp;
+              wled_out = wled_out_temp;
+              rbled_out = rbled_out_temp;
+              rled_out = rled_out_temp;
+              uvled_out = uvled_out_temp;
+            }
+          }
+        }
+        else
+        {
+          bled_out = wled_out = rbled_out  = rled_out = uvled_out = 0;
+        }
       }
       else if(NumMins(led_off_hora,led_off_minuto) < NumMins(led_on_hora,led_on_minuto)) 
       {                   
@@ -128,47 +112,27 @@ void LED_levels_output()
           {   
             if((NumMins(t.hour,t.min) >= (NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer)) && (NumMins(t.hour,t.min) <= NumMins(led_on_hora,led_on_minuto)))
             { 
-              bled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-              wled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-              rbled_out  = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-              rled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
-              uvled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
+              bled_out = wled_out = rbled_out  = rled_out = uvled_out = map(NumMins(t.hour,t.min),(NumMins(led_on_hora,led_on_minuto) - amanhecer_anoitecer), NumMins(led_on_hora,led_on_minuto), 0, pwm_pre_definido);
             }
             else 
             {
-              bled_out = pwm_pre_definido;
-              wled_out = pwm_pre_definido;
-              rbled_out = pwm_pre_definido;
-              rled_out = pwm_pre_definido;
-              uvled_out = pwm_pre_definido;  
+              bled_out = wled_out = rbled_out  = rled_out = uvled_out = pwm_pre_definido;  
             }
           }
           else if(NumMins(t.hour,t.min) <= (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer))
           { 
             if((NumMins(t.hour,t.min) <= (NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer)) && (NumMins(t.hour,t.min) >= NumMins(led_off_hora,led_off_minuto)))
             {
-              bled_out = map(NumMins(t.hour,t.min),(NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), NumMins(led_off_hora,led_off_minuto), 0, pwm_pre_definido);
-              wled_out = map(NumMins(t.hour,t.min),(NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), NumMins(led_off_hora,led_off_minuto), 0, pwm_pre_definido);
-              rbled_out  = map(NumMins(t.hour,t.min),(NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), NumMins(led_off_hora,led_off_minuto), 0, pwm_pre_definido);
-              rled_out = map(NumMins(t.hour,t.min),(NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), NumMins(led_off_hora,led_off_minuto), 0, pwm_pre_definido);
-              uvled_out = map(NumMins(t.hour,t.min),(NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), NumMins(led_off_hora,led_off_minuto), 0, pwm_pre_definido);
+              bled_out = wled_out = rbled_out  = rled_out = uvled_out = map(NumMins(t.hour,t.min),(NumMins(led_off_hora,led_off_minuto) + amanhecer_anoitecer), NumMins(led_off_hora,led_off_minuto), 0, pwm_pre_definido);
             }
             else 
             {
-              bled_out = pwm_pre_definido;
-              wled_out = pwm_pre_definido;
-              rbled_out = pwm_pre_definido;
-              rled_out = pwm_pre_definido;
-              uvled_out = pwm_pre_definido;  
+              bled_out = wled_out = rbled_out  = rled_out = uvled_out = pwm_pre_definido;  
             }
           }
           else
           {
-            bled_out = 0;
-            wled_out = 0;
-            rbled_out = 0;
-            rled_out = 0;
-            uvled_out = 0;            
+            bled_out = wled_out = rbled_out  = rled_out = uvled_out = 0;          
           }
         }
         else  // Controla individualmente
@@ -213,11 +177,7 @@ void LED_levels_output()
           }
           else
           {
-            bled_out = 0;
-            wled_out = 0;
-            rbled_out = 0;
-            rled_out = 0;
-            uvled_out = 0;            
+            bled_out = wled_out = rbled_out  = rled_out = uvled_out = 0;          
           }
         }
       }
@@ -225,11 +185,7 @@ void LED_levels_output()
     else // Se hora alterada == true.
     {
       hora_modificada = false;
-      bled_out = 0;
-      wled_out = 0;
-      rbled_out = 0;
-      rled_out = 0;
-      uvled_out = 0;
+      bled_out = wled_out = rbled_out  = rled_out = uvled_out = 0;
     }
   }// predefinido ativado
   else
@@ -328,6 +284,7 @@ int check( byte *pt1, byte *pt2, int lstep)
   } 
   return result;
 }
+
 
 
 
